@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Tap Guss!
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    style
+          include form.css
+  body
+    h1 Welcome login tap of guss!
+    div(class="form_auth_wrapper")
+        h2 Войти
+        form(class="form_auth")
+            div Логин пользователя:
+            input(name="LOGIN" type="text" class="form_auth_login")
+            div Пароль пользователя:
+            input(name="PASSWORD" type="text" class="form_auth_pass")
+            input(type="button" class="form_auth_logining" value="Войти" name="logining")
+    script
+          include form.js

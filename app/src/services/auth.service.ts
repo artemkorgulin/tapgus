@@ -1,0 +1,32 @@
+import { Injectable } from "@nestjs/common";
+import { JwtService } from "@nestjs/jwt";
+import { TokenJwtInterface } from "../interfaces/token-jwt.interface";
+
+@Injectable()
+export class AuthService {
+    private tokenType;
+
+    constructor(private readonly jwtService: JwtService) {
+        this.tokenType = "bearer";
+    }
+
+    public generateTokenJwt(
+        payload: object,
+        expiresIn: string,
+    ) {
+        const accessToken = this.jwtService.sign(payload);
+
+        return {
+            access_token: accessToken,
+            token_type: this.tokenType,
+            refresh_token: "",
+            expires_in: expiresIn,
+        };
+    }
+
+    public getToken(
+        email: string
+    ): string {
+        return "";
+    }
+}

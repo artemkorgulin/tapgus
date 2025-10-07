@@ -1,0 +1,14 @@
+body img.gusshero {
+    cursor: pointer;
+}
+
+body .points-user {
+    width: 320px;
+    overflow: hidden;
+}
+body .points-user-head {
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+    display: block;
+}
