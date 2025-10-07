@@ -13,6 +13,6 @@
 ./static/main.js
 ./static/server.js
 
-./postgress
+./postgres
 
 ./app/node_modules
