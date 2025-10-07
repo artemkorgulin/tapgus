@@ -11,9 +11,9 @@ import { PassportModule } from '@nestjs/passport';
             session: false,
         }),
         JwtModule.register({
-            secretOrPrivateKey: process.env['PRIVATE_KEY'],
-            secret: process.env['PRIVATE_KEY'],
-            signOptions: { expiresIn: process.env['PRIVATE_EXPIRE_IN'] },
+            secretOrPrivateKey: process.env.PRIVATE_KEY,
+            secret: process.env.PRIVATE_KEY,
+            signOptions: { expiresIn: process.env.PRIVATE_EXPIRE_IN },
         }),
     ],
     providers: [AuthService],

@@ -11,26 +11,22 @@ export class Rounds extends BaseEntity {
 
     initialize() {
         this.id = "";
-        this.username = "";
-        this.email = "";
-        this.password = "";
-        this.salt = "";
+        this.round_name = "";
+        this.round_time = "";
+        this.round_user = "";
     }
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
-    username: string;
+    round_name: string;
 
     @Column()
-    email: string;
+    round_time: string;
 
     @Column()
-    password: string;
-
-    @Column()
-    salt: string;
+    round_user: string;
 
     async validatePassword(password: string): Promise<boolean> {
         const hash = await bcrypt.hash(password, this.salt);

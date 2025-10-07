@@ -26,15 +26,15 @@ export class AuthController {
         let token;
         token = this.authService.generateTokenJwt(
             JwtModule.register({
-                secretOrPrivateKey: process.env['PRIVATE_KEY'],
-                secret: process.env['PRIVATE_KEY'],
-                signOptions: { expiresIn: process.env['PRIVATE_EXPIRE_IN'] },
+                secretOrPrivateKey: process.env.PRIVATE_KEY,
+                secret: process.env.PRIVATE_KEY,
+                signOptions: { expiresIn: process.env.PRIVATE_EXPIRE_IN },
             }),
-            String(process.env['PRIVATE_EXPIRE_IN'])
+            String(process.env.PRIVATE_EXPIRE_IN)
         );
 
         res.cookie('token', token.access_token, {
-            expires: new Date(new Date().getTime() + Number(process.env['PRIVATE_COOKIE_DAY']) * 1000),
+            expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
             sameSite: 'strict',
             httpOnly: false,
             secure: false
