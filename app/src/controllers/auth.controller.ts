@@ -4,16 +4,21 @@ import {
     Get,
     Param,
     Patch,
+    HttpCode,
+    HttpStatus,
     Res,
     Post,
-    Req
+    Req,
+    UseInterceptors
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { AuthService } from '../services/auth.service';
+import { PostStatusInterceptor } from '../interceptors/post.interceptor';
 import { SignupDto } from '../dto/signup.dto';
 import { JwtModule } from "@nestjs/jwt";
 
 @Controller('api/auth')
+@UseInterceptors(PostStatusInterceptor)
 export class AuthController {
     constructor(private authService: AuthService) {}
     @Get('token')
@@ -45,11 +50,13 @@ export class AuthController {
             httpOnly: false,
             secure: false
         });
+
         return {
             success: true,
             message: 'success'
         };
     }
+
     @Get('logout')
     logout(@Res({ passthrough: true }) res: Response) {
         // Some internal checks

@@ -19,6 +19,9 @@ async function bootstrap() {
 
   app.use(function (request: Request, response: Response, next: NextFunction) {
     response.setHeader('Access-Control-Allow-Origin', process.env.CORS_ALLOW_HOST+':'+process.env.CORS_ALLOW_PORT);
+    response.setHeader("Access-Control-Allow-Methods", "DELETE, POST, GET, OPTIONS");
+    response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
+    response.setHeader('Access-Control-Allow-Credentials', "true");
     next();
   });
   await app.listen(3000);

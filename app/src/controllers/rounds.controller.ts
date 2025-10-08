@@ -7,11 +7,14 @@ import {
     Post,
     Req,
     Render,
+    UseInterceptors,
 } from '@nestjs/common';
 import {RoundsService} from "../services/rounds.service";
 import {Request} from "express";
+import {PostStatusInterceptor} from "../interceptors/post.interceptor";
 
 @Controller('api/rounds')
+@UseInterceptors(PostStatusInterceptor)
 export class RoundsController {
     constructor(private roundsService: RoundsService) {}
     @Get()

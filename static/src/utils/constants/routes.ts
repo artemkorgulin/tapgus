@@ -89,7 +89,7 @@ export const ROUTES = {
         LOGOUT: '/actions/logout',
     },
 
-    LOGIN: ENV_USE_LEGACY_AUTH ? '/login-v1' : '/login',
+    LOGIN: ENV_USE_LEGACY_AUTH ? '/login' : '/login',
     NOT_FOUND: '/not-found',
     NOT_FOUND_USER: '/user-not-found',
     NOT_FOUND_EXTERNAL_PATH: '/external-path-not-found',

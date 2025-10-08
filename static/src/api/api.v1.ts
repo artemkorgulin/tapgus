@@ -6,15 +6,20 @@ const auth = {
     checkAuth: async () => {
         try {
             const response = await fetch(
-                `${ENV_BASE_LEGACY_API_URL}/api/auth/checkauth`,
+                `${ENV_BASE_LEGACY_API_URL}/auth/checkauth`,
                 {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                     method: 'POST',
                     credentials: 'include',
                     mode: 'cors',
                 },
             );
-
+            console.log(`${ENV_BASE_LEGACY_API_URL}/auth/checkauth`);
+            console.log(response.json());
             const { status }: TLegacyCheckAuthReq = await response.json();
+            console.log(status);
             console.log(status);
             return status === 'success';
         } catch (e) {

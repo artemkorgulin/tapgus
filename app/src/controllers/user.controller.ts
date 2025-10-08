@@ -6,12 +6,15 @@ import {
     Patch,
     Post,
     Req,
+    UseInterceptors,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { UserService } from '../services/user.service';
 import { SignupDto } from '../dto/signup.dto';
+import {PostStatusInterceptor} from "../interceptors/post.interceptor";
 
 @Controller('api/user')
+@UseInterceptors(PostStatusInterceptor)
 export class UserController {
     constructor(private userService: UserService) {}
     @Get()
