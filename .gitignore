@@ -24,3 +24,5 @@
 ./postgres
 
 ./app/node_modules
+
+./nginx/ssl
