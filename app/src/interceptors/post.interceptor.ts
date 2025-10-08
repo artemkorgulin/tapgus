@@ -14,7 +14,7 @@ export class PostStatusInterceptor implements NestInterceptor {
                         res.status(HttpStatus.OK);
                     }
                 } else if (req.method === 'OPTIONS') {
-                    res.status(HttpStatus.OK);
+                    res.status(HttpStatus.NO_CONTENT);
                 }
                 return value;
             }),
