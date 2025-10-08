@@ -62,7 +62,7 @@ export const IframeBox: TComponent<IframeBoxProps> = ({
                     className={isPixel ? 'hidden' : 'h-full w-full'}
                     src={
                         blobUrl ||
-                        `${ENV_EXTERNAL_BASE_URL}api/app/path/routes${path}`
+                        `${ENV_EXTERNAL_BASE_URL}/api/page/${path}`
                     }
                     isDebug={isDebug}
                 />

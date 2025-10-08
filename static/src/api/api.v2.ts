@@ -72,7 +72,7 @@ const products = {
 
 const iframe = {
     getContent: (path: string, config?: { signal: GenericAbortSignal }) =>
-        iframeInstance.get(`/app/path/routes${path}`, config),
+        iframeInstance.get(`/api/page/${path}`, config),
 };
 
 export const api = {
