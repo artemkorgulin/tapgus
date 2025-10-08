@@ -14,6 +14,12 @@
 ./app/static/server.js
 
 ./static
+./static/node_modules
+./static/dist
+./static/.husky
+./static/ci
+./static/.env.local
+./static/.gitignore
 
 ./postgres
 
