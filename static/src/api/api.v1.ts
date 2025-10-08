@@ -6,7 +6,7 @@ const auth = {
     checkAuth: async () => {
         try {
             const response = await fetch(
-                `${ENV_BASE_LEGACY_API_URL}/api/v1/checkauth`,
+                `${ENV_BASE_LEGACY_API_URL}/api/auth/checkauth`,
                 {
                     method: 'POST',
                     credentials: 'include',
@@ -15,7 +15,7 @@ const auth = {
             );
 
             const { status }: TLegacyCheckAuthReq = await response.json();
-
+            console.log(status);
             return status === 'success';
         } catch (e) {
             console.error(e);
@@ -25,7 +25,7 @@ const auth = {
 
     logOut: async () => {
         try {
-            await fetch(`${ENV_BASE_LEGACY_API_URL}/?logout=yes`, {
+            await fetch(`${ENV_BASE_LEGACY_API_URL}/api/auth/logout`, {
                 redirect: 'manual',
             });
             return true;
