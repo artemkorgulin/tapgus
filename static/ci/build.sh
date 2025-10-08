@@ -7,7 +7,6 @@ if [ ! -f /home/node/.env ]; then
     yarn add sharp --ignore-engines && \
     npm install --os=linux --cpu=x64 sharp && \
     mkdir -p /home/node/ssl && \
-    cp -r /etc/resty-auto-ssl /home/node/ssl && \
     yarn build && \
     yarn dev --port 9999 && \
     chown -R 1000:1000 /home/node/
@@ -18,7 +17,6 @@ else
     yarn add sharp --ignore-engines && \
     npm install --os=linux --cpu=x64 sharp && \
     mkdir -p /home/node/ssl && \
-    cp -r /etc/resty-auto-ssl /home/node/ssl && \
     yarn build && \
     yarn dev --port 9999 && \
     chown -R 1000:1000 /home/node/

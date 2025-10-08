@@ -2,7 +2,7 @@ import {BaseEntity, PrimaryGeneratedColumn, Entity, Column, Unique, OneToMany} f
 import * as bcrypt from 'bcrypt';
 
 @Entity()
-@Unique(['email'])
+@Unique(['round_user'])
 export class Rounds extends BaseEntity {
     constructor() {
         super();
@@ -27,9 +27,4 @@ export class Rounds extends BaseEntity {
 
     @Column()
     round_user: string;
-
-    async validatePassword(password: string): Promise<boolean> {
-        const hash = await bcrypt.hash(password, this.salt);
-        return hash === this.password;
-    }
 }
