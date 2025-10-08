@@ -14,7 +14,7 @@ services:
     working_dir: /opt/server
     volumes:
       - ./app:/opt/server
-      - ./static:/opt/static
+      - ../app/static:/opt/static
       - ./app/node_modules:/opt/server/node_modules
     env_file:
       - .env
@@ -52,7 +52,7 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./static:/var/www/static
+      - ./app/static:/var/www/static
     restart: always
 
   # Контейнер с pgadmin

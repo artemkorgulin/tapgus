@@ -10,7 +10,7 @@ services:
     working_dir: /opt/server
     volumes:
       - ./app:/opt/server
-      - ./static:/opt/static
+      - ./app/static:/opt/static
     env_file:
       - .env
     expose:
@@ -42,7 +42,7 @@ services:
       - '80:80'
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./static:/var/www/static
+      - ./app/static:/var/www/static
     restart: always
 
   # Контейнер с pgadmin

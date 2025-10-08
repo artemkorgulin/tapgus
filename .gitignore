@@ -1,17 +1,19 @@
-./static/config
-./static/controllers
-./static/dto
-./static/entityes
-./static/interfaces
-./static/middlewares
-./static/models
-./static/modules
-./static/repositories
-./static/routes
-./static/services
-./static/app.js
-./static/main.js
-./static/server.js
+./app/static/config
+./app/static/controllers
+./app/static/dto
+./app/static/entityes
+./app/static/interfaces
+./app/static/middlewares
+./app/static/models
+./app/static/modules
+./app/static/repositories
+./app/static/routes
+./app/static/services
+./app/static/app.js
+./app/static/main.js
+./app/static/server.js
+
+./static
 
 ./postgres
 

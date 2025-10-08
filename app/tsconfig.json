@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "../static",
+    "outDir": "./static",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
