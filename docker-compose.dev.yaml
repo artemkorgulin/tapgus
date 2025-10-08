@@ -3,7 +3,18 @@ networks:
   default:
     name: guss-tapp
 services:
-  # Контейнеры с Node Server.js
+  # Контейнеры с React App frontend
+  static:
+    container_name: static
+    build:
+      context: ./static/ci
+    volumes:
+      - ./static:/home/node:rw
+    env_file:
+      - static/.env
+    ports:
+      - 9999:9999
+  # Контейнеры с Node Server.js backend
   app:
     deploy:
       replicas: 3

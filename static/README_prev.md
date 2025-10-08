@@ -1,14 +1,14 @@
 # Примечания по проекту
 - Установить yarn modern https://yarnpkg.com/getting-started/install
-- Некоторые компоненты и их варианты можно посмотреть на странице https://localhost:3000/uibook
+- Некоторые компоненты и их варианты можно посмотреть на странице https://localhost:9999/uibook
 - Чтобы обеспечить локальную работоспособность проекта, необходимо добавить следующую запись в файл hosts:
-  - ```::1 app.codev.dats.tech.loc
-      127.0.0.1 app.codev.dats.tech.loc```
-  - Где: `codev.dats.tech.loc` - домен, с которого загружается iframe контент
-  - Проект станет доступен по адресу: https://app.codev.dats.tech.loc:3000/
+  - ```::1 localhost
+      127.0.0.1 localhost```
+  - Где: `localhost` - домен, с которого загружается iframe контент
+  - Проект станет доступен по адресу: https://localhost:9999/
   - В определенных случаях домен в HOSTS должен совпадать с доменом куда ссылается iframe. Например:
-    - `VITE_EXTERNAL_BASE_URL=https://codev-dev1.dats.tech`
-    - `::1 app.codev-dev1.dats.tech`
+    - `VITE_EXTERNAL_BASE_URL=https://localhost`
+    - `::1 localhost`
 - Для процессинга картинок используем [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools/tree/main/packages/vite)
   - синтаксис: `import defaultAvatar from 'assets/temp/avatar.webp?w=48&h=48&format=webp&img';`
   - вконце добавляем `&img`, это [обходной путь](https://github.com/JonasKruckenberg/imagetools/issues/160#issuecomment-1009292026) для TS;
@@ -19,8 +19,8 @@
 
 # Работа с dev/stage стендами
 
-1. В `VITE_EXTERNAL_BASE_URL` указываем домен, например: `VITE_EXTERNAL_BASE_URL=codev-dev1.dats.tech`
-2. Добавляем запись в hosts: `127.0.0.1 app.codev-dev1.dats.tech`
+1. В `VITE_EXTERNAL_BASE_URL` указываем домен, например: `VITE_EXTERNAL_BASE_URL=localhost`
+2. Добавляем запись в hosts: `127.0.0.1 localhost`
 3. Пользуемся
 
 # Содержание

@@ -68,22 +68,14 @@ yarn dev
 Добавьте следующие записи в файл hosts:
 
 ```
-::1 app.codev.dats.tech.loc
-127.0.0.1 app.codev.dats.tech.loc
-
-10.50.21.63 codev.dats.tech.loc
-10.50.21.63 adminer.dats.tech.loc
-10.50.21.63 supervisor.dats.tech.loc
-10.50.21.63 kibana.dats.tech.loc
-10.50.21.63 rabbitmq.dats.tech.loc
-10.50.21.63 elasticsearch.dats.tech.loc
-10.50.21.63 mailhog.dats.tech.loc
+::1 localhost
+127.0.0.1 localhost
 ```
 
-Где: `codev.dats.tech.loc` - домен, с которого загружается iframe контент
+Где: `localhost` - домен, с которого загружается iframe контент
 
 После этого проект станет доступен по адресу:
-https://app.codev.dats.tech.loc:3000/
+https://localhost:9999/
 
 Фронтенд и iframe-контент должны быть на одном домене.
 
@@ -93,14 +85,14 @@ https://app.codev.dats.tech.loc:3000/
 
 Env:
 ```
-VITE_BASE_API_URL_DEV_PROXY=https://codev-dev1.dats.tech
-VITE_EXTERNAL_BASE_URL=https://codev-dev1.dats.tech
+VITE_BASE_API_URL_DEV_PROXY=https://localhost
+VITE_EXTERNAL_BASE_URL=https://localhost
 ```
 
 Hosts:
 ```
-::1 app.codev-dev1.dats.tech
-127.0.0.1 app.codev-dev1.dats.tech
+::1 localhost
+127.0.0.1 localhost
 ```
 
 ## Глоссарий
@@ -133,7 +125,7 @@ Hosts:
 - [CSS Style Guide](/docs/css.md)
 - [svg path to clip-path converter](https://www.plantcss.com/css-clip-path-converter)
 - [SwitchHosts](https://switchhosts.vercel.app/) помогает управлять файлом hosts
-- Набор некоторых ui компонентов: https://localhost:3000/uibook
+- Набор некоторых ui компонентов: https://localhost:9999/uibook
 - Для обработки изображений используется [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools/tree/main/packages/vite)
     - Синтаксис: `import defaultAvatar from 'assets/temp/avatar.webp?w=48&h=48&format=webp&img';`
     - В конце добавляем `&img`, это [обходной путь](https://github.com/JonasKruckenberg/imagetools/issues/160#issuecomment-1009292026) для TypeScript

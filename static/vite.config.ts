@@ -29,7 +29,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
         ? {}
         : {
               host: 'localhost',
-              port: 3000,
+              port: 9999,
               cors: true,
               proxy: {
                   [ENV.VITE_BASE_LEGACY_API_URL]: {
