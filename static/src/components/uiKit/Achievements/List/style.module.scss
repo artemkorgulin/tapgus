@@ -9,7 +9,6 @@
 
       .title{
         @apply whitespace-nowrap;
-        @include app-text-secondary;
         @apply text-center leading-[1];
       }
     }
@@ -42,7 +41,6 @@
 
       .list{
         @apply flex-row gap-6 overflow-x-auto pb-6;
-        @include app-tiny-scrollbar;
 
         &:after{
           @apply content-box block;

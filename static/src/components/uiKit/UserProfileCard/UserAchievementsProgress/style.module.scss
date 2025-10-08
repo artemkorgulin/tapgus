@@ -6,7 +6,6 @@
 
     &::after{
       @apply content-box block h-full w-full;
-      @include app-stripes-45;
     }
   }
 

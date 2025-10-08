@@ -82,19 +82,6 @@
     );
 }
 
-/**
-Уголки
-to change color use background-color
--   миксины `app-corner-r` и `app-corner-l` - это стиль с маской "уголков"
--   цвет уголков меняется через bg-color
-
-пример использования:
-
-&:before{
-  @apply content-box absolute w-2 h-2 bottom-3 left-3 bg-gray;
-  @include app-corner-l;
-}
-*/
 // todo: хочется положить ассеты в переменные
 // todo: вопрос что лучше?
 //  mask или рендер иконки как компонент
@@ -118,12 +105,10 @@ to change color use background-color
 
   &::before {
     @apply bottom-0 left-0;
-    @include app-corner-l;
   }
 
   &::after {
     @apply top-0 right-0;
-    @include app-corner-r;
   }
 }
 
@@ -151,14 +136,6 @@ to change color use background-color
     content: counter(li, decimal-leading-zero);
 }
 
-/**
- * eg:
- * .container{
- *   @apply relative;
- *
- *   @include app-animated-hover(top-0 left-0 origin-left, 20, before);
- * }
- */
 @mixin app-animated-hover(
     $styles: top-0 left-0 origin-left,
     $size: 20,
@@ -295,27 +272,22 @@ TODO перенести сюда
   }
   &::before {
     @apply bottom-0 left-0;
-    @include app-corner-l;
   }
   &::after {
     @apply top-0 right-0;
-    @include app-corner-r;
   }
 
   @if $focus and $hover {
     &:focus, &:hover{
-      @include _app-corners-anim_PSEUDO;
     }
   } @else {
     @if $focus {
       &:focus-within {
-        @include _app-corners-anim_PSEUDO;
       }
     }
 
     @if $hover {
       &:hover {
-        @include _app-corners-anim_PSEUDO;
       }
     }
   }
@@ -333,14 +305,6 @@ TODO перенести сюда
   &:after{
     @apply content-box block w-full h-full absolute top-0 left-0 pointer-events-none;
   }
-
-  &:before{
-    @include app-border-inner;
-  }
-
-  &:after{
-    @include app-corners-bg;
-  }
 }
 
 @mixin app-mask-stats($bg: red){
@@ -349,7 +313,5 @@ TODO перенести сюда
 }
 
 @mixin app-card-label-vertical{
-  @include app-text-primary;
-  @include app-text-vertical;
   @apply h-[60px] z-10 text-right text-secondary uppercase;
 }

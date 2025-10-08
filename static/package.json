@@ -17,6 +17,8 @@
         "release-notes": "./scripts/release-notes.sh $0 | pbcopy"
     },
     "dependencies": {
+        "@rollup/rollup-linux-x64-gnu": "^4.52.4",
+        "@swc/core": "^1.13.5",
         "axios": "^1.6.2",
         "axios-jwt": "^4.0.0",
         "clsx": "^2.0.0",
@@ -38,7 +40,6 @@
         "react-router-dom": "^6.19.0",
         "react-select": "^5.8.0",
         "recharts": "^2.10.4",
-        "sharp": "^0.34.4",
         "vite-imagetools": "^6.2.9"
     },
     "engines": {

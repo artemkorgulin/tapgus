@@ -40,10 +40,8 @@
   }
 
   &.underlay{
-    @include app-text-primary;
     @apply text-white pr-6 relative;
 
-    @include app-animated-hover(top-0 right-0 origin-right, 116, after);
   }
 
   &:not(&.disabled) {

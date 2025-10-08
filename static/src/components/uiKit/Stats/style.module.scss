@@ -4,10 +4,6 @@
   .info {
     @apply flex flex-row justify-between;
 
-    .label{
-      @include app-card-label-vertical;
-    }
-
     .numbers{
       @apply flex flex-row gap-[0.438rem];
 
@@ -27,7 +23,6 @@
         }
 
         .dynNumber{
-          @include app-text-secondary;
           @apply text-sm;
           color: currentColor;
           line-height: 92.308%;
@@ -43,13 +38,10 @@
       @apply content-box w-2 h-2 bg-gray
       absolute bottom-3 left-3;
       // todo: перенести часть стилей в миксин app-corner-l, т.к. они постоянны (высота и ширина)
-      @include app-corner-l;
     }
     &:after{
       @apply content-box w-[178px] h-[74px]
       absolute bottom-3 right-3;
-
-      @include app-mask-stats(theme('colors.grayLight'));
     }
 
     .graphIcon{

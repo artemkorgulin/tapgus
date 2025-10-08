@@ -3,8 +3,8 @@
 if [ ! -f /home/node/.env ]; then
     cp /home/node/.env.local /home/node/.env
     cd /home/node/ && \
+    npm i --omit=optional && \
     yarn && \
-    yarn add sharp --ignore-engines && \
     mkdir -p /home/node/ssl && \
     yarn build && \
     yarn dev --port 9999 && \
@@ -12,6 +12,7 @@ if [ ! -f /home/node/.env ]; then
     echo '   ⠿ static http|https bundled'
 else
   	cd /home/node/ && \
+    npm i --omit=optional && \
     yarn && \
     mkdir -p /home/node/ssl && \
     yarn build && \

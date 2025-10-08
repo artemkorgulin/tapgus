@@ -1,5 +1,4 @@
 .label {
-    @include app-text-secondary;
     @apply relative text-primary block w-full cursor-text;
     @apply flex flex-row;
 
@@ -11,12 +10,10 @@
     }
 
     .input {
-        @include app-border-inner;
         @apply pl-4 min-w-[220px] min-h-[48px] max-h-[48px] w-full;
 
         &:focus-visible, &:hover {
             @apply outline-none;
-            @include app-border-inner(theme('colors.blue'));
         }
     }
 
@@ -35,7 +32,6 @@
     &.hasError{
         .input{
             @apply outline-none;
-            @include app-border-inner(theme('colors.red'));
         }
     }
 
@@ -70,7 +66,6 @@
     &.variant-with_corners {
         &:after {
             @apply content-box absolute w-full h-full top-0 left-0;
-            @include app-corners-bg;
         }
     }
 }

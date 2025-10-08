@@ -1,9 +1,5 @@
 // todo remove after migration all components to Typography
 @layer base {
-    body {
-        @include app-text-primary;
-    }
-
     h1 {
         @apply text-h1 uppercase;
     }
@@ -17,7 +13,6 @@
     }
 
     address {
-        @include app-text-secondary;
         @apply text-sm;
     }
 }

@@ -1,7 +1,6 @@
 
 .button_with_corners {
     @apply relative;
-    @include app-corners-animation_PSEUDO();
 
     &.solid_color{
         .icon path{
@@ -17,7 +16,6 @@
 
         .button {
             @apply bg-primary transition-colors;
-            @include app-angled-corners-clip;
 
             .icon {
                 @apply opacity-10;
@@ -80,7 +78,6 @@
     }
 
     .button {
-        @include app-text-primary;
         @apply px-6 h-12 flex flex-row gap-3 justify-center items-center;
         @apply uppercase text-white;
     }

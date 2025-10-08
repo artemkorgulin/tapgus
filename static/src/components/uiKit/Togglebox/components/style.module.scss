@@ -59,7 +59,6 @@
 
       &.mod_switch {
         @apply w-9 h-6;
-        @include app-angled-corners-clip(0.375rem);
       }
 
       &.mod_check, &.mod_radio {
@@ -107,7 +106,6 @@
           @apply flex items-center justify-center;
 
           &:before {
-            @include app-angled-corners-clip(0.1875rem);
             @apply content-box w-3 h-3;
             @apply bg-white transition duration-base;
             @apply left-[4px] bottom-[4px];

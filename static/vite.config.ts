@@ -85,10 +85,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: `
-                    @import "./src/assets/styles/_media.scss";
-                    @import "./src/assets/styles/_mixins.scss";
-                    @import "./src/assets/styles/_variables.scss";`,
+                    api: 'modern-compiler' // or "modern"
                 },
             },
         },

@@ -15,7 +15,6 @@
         }
 
         .list {
-            @include app-tiny-scrollbar;
             @apply overflow-y-auto max-h-[50vh];
             @apply flex flex-col gap-[1.125rem] pr-1;
         }

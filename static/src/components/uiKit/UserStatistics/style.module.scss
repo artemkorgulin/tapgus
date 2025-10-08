@@ -5,12 +5,7 @@
   .row {
     @apply flex flex-row justify-between;
 
-    .item {
-      @include app-text-secondary;
-    }
-
     .number {
-      @include app-text-primary;
       @apply uppercase;
     }
   }

@@ -12,7 +12,6 @@
 
     &::before{
       @apply content-box block h-full w-full;
-      @include app-stripes-45(theme('colors.gray'));
     }
   }
 

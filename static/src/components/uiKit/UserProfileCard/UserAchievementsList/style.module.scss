@@ -3,14 +3,12 @@
 
   .list{
     @apply flex flex-row gap-6 overflow-x-scroll overflow-y-hidden pb-6;
-    @include app-tiny-scrollbar;
 
     .item{
       @apply flex flex-col gap-2 items-center shrink-0;
 
       .title{
         @apply whitespace-nowrap;
-        @include app-text-secondary;
         @apply text-center leading-[1];
       }
     }

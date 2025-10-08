@@ -27,10 +27,6 @@
   @apply tabular-nums;
 }
 
-.vertical{
-  @include app-text-vertical;
-}
-
 .noWrap{
   @apply whitespace-nowrap;
 }

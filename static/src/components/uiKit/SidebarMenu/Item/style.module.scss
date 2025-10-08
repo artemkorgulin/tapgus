@@ -13,8 +13,6 @@
     .container {
         @apply relative flex flex-row pl-6;
 
-        @include app-animated-hover(top-0 left-0 origin-left);
-
         .icon {
             @apply relative w-12 h-12 inline-flex items-center justify-center;
 

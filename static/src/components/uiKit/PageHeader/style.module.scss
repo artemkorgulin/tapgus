@@ -7,7 +7,6 @@
 
     &:before {
       @apply w-6 h-full content-box block;
-      @include app-stripes-45(theme('colors.gray'));
     }
 
     .header{
@@ -25,7 +24,6 @@
 
       .title{
         @apply relative z-10 self-center whitespace-nowrap;
-        @include app-text-outline-5px;
         transform: translate(calc(100% - 1.5rem), 0);
       }
     }

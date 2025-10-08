@@ -11,7 +11,6 @@
 
     &:before {
         @apply w-6 h-full content-box block absolute -left-12;
-        @include app-stripes-45(theme('colors.gray'));
     }
 
     .title {

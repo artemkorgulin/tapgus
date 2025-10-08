@@ -35,12 +35,10 @@
 
     &::before {
       @apply bottom-1 left-1;
-      @include app-corner-l;
     }
 
     &::after {
       @apply top-1 right-1;
-      @include app-corner-r;
     }
   }
 }

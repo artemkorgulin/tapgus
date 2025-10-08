@@ -1,6 +1,5 @@
 .search_box{
     .search {
-        @include app-text-secondary;
         @apply relative text-primary block w-full h-full cursor-text;
 
         &:has(input:disabled){
@@ -18,7 +17,6 @@
         }
 
         .input{
-            @include app-text-primary;
             @apply text-primary font-normal text-base;
         }
 
@@ -38,16 +36,13 @@
         &.variant-default {
             &:after {
                 @apply content-box absolute w-full h-full top-0 left-0;
-                @include app-corners-bg;
             }
 
             .input {
-                @include app-border-inner;
                 @apply pl-14 min-w-[220px] min-h-[48px] w-full;
 
                 &:focus-visible {
                     @apply outline-none;
-                    @include app-border-inner(theme('colors.blue'));
                 }
             }
         }

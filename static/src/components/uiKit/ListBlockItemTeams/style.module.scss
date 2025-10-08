@@ -18,13 +18,11 @@
       text-tertiary transition-colors;
 
       .title{
-        @include app-text-secondary;
         @apply bg-blue px-2 py-[0.063rem]
         text-center text-white;
       }
 
       .team{
-        @include app-text-primary;
         @apply uppercase text-white text-[1.063rem];
       }
     }

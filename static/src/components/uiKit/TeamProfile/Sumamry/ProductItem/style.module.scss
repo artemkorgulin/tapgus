@@ -2,7 +2,6 @@
   @apply flex flex-col gap-2 relative;
 
   .title{
-    @include app-text-primary;
     @apply uppercase;
   }
 

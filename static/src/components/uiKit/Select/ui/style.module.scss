@@ -1,5 +1,4 @@
 .customSelect{
-  @include app-text-secondary;
   @apply relative text-primary block flex-1 cursor-text;
 
   &.variant_beveled {
@@ -21,26 +20,18 @@
     &:after {
       @apply content-box absolute w-full h-full top-0 left-0;
       @apply pointer-events-none;
-      @include app-corners-bg;
     }
 
     .control{
-      @include app-border-inner(theme('colors.gray'));
 
       .icon{
         @apply text-secondary;
       }
 
       &Focus, &:hover{
-        @include app-border-inner(theme('colors.blue'));
-
         .icon{
           @apply text-primary;
         }
-      }
-
-      &.menuIsOpened{
-        @include app-border-inner(theme('colors.blue'), theme('boxShadow.card'));
       }
     }
   }

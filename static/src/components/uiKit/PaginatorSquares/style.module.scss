@@ -1,9 +1,7 @@
 .pages_list{
-  @include app-tiny-scrollbar;
   @apply flex flex-row items-center ;
 
   .container{
-    @include app-tiny-scrollbar;
     @apply flex flex-row max-w-40 overflow-hidden overflow-x-auto;
   }
 

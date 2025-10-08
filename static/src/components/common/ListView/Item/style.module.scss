@@ -35,10 +35,6 @@
     @apply uppercase text-secondary pl-6 shrink-0;
   }
 
-  .logo_clip {
-    @include app-angled-corners-clip(0rem);
-  }
-
   .logo {
     @apply relative text-white;
   }
@@ -59,7 +55,6 @@
         @apply absolute px-6;
         @apply bottom-[-0.875rem] left-0;
         @apply text-h2 leading-[100%];
-        @include app-text-outline-5px;
       }
     }
 
@@ -77,10 +72,6 @@
 
       .logo{
         @apply w-12 h-12;
-
-        .logo_clip {
-          @include app-angled-corners-clip;
-        }
       }
 
       .title {
