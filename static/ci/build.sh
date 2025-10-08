@@ -5,7 +5,6 @@ if [ ! -f /home/node/.env ]; then
     cd /home/node/ && \
     yarn && \
     yarn add sharp --ignore-engines && \
-    npm install --os=linux --cpu=x64 sharp && \
     mkdir -p /home/node/ssl && \
     yarn build && \
     yarn dev --port 9999 && \
@@ -14,8 +13,6 @@ if [ ! -f /home/node/.env ]; then
 else
   	cd /home/node/ && \
     yarn && \
-    yarn add sharp --ignore-engines && \
-    npm install --os=linux --cpu=x64 sharp && \
     mkdir -p /home/node/ssl && \
     yarn build && \
     yarn dev --port 9999 && \
