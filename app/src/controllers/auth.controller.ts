@@ -20,6 +20,12 @@ export class AuthController {
     token(@Param() param: { email: string }) {
         return this.authService.getToken(param.email);
     }
+    @Post('checkauth')
+    checkauth() {
+        return {
+            status: 'success'
+        };
+    }
 
     @Post('login')
     login(@Res({ passthrough: true }) res: Response) {
