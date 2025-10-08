@@ -1,0 +1,24 @@
+.img{
+  @apply max-w-none;
+}
+
+.container{
+  @apply relative;
+}
+
+.imgPos{
+  @apply absolute top-0 left-0;
+}
+
+.loader{
+  @apply flex flex-col gap-2 items-center justify-center text-white;
+  @apply transition-[opacity,background-color] bg-blue duration-base;
+
+  .alt{
+    @apply text-white text-center;
+  }
+}
+
+.hide{
+  @apply opacity-0 pointer-events-none;
+}

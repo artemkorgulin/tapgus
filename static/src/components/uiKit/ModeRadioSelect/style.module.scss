@@ -1,0 +1,36 @@
+.toggle_box {
+    @apply flex items-center;
+
+    .toggler {
+        @apply relative;
+
+        &::after {
+            @apply content-[''] absolute z-10;
+            @apply w-6 h-6 bottom-1 left-1 bg-zinc-500 rotate-90;
+            @apply -scale-y-100;
+            @apply transition-all duration-300;
+            mask: url('~/assets/icons/dots-white.svg') no-repeat center /
+                contain;
+        }
+
+        &:hover {
+            &::after {
+                @apply bg-blue;
+            }
+        }
+
+        @apply flex items-center bg-black p-3 h-12 text-white;
+
+        label {
+            @apply text-blue bg-white py-1 px-3 uppercase cursor-pointer z-20 text-sm;
+        }
+
+        input {
+            @apply hidden;
+        }
+
+        input:checked + label {
+            @apply bg-transparent text-white cursor-auto;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.tile_layout{
+  @apply grid gap-6;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-columns: repeat(2, 1fr);
+
+  .top_left{
+    @apply flex flex-row gap-6;
+  }
+}

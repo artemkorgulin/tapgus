@@ -1,0 +1,27 @@
+.legend_list{
+  @apply flex flex-row gap-6 shadow-card bg-white w-fit pt-3 pb-[0.7rem] px-6 text-inherit;
+}
+
+.legend_button{
+  @apply flex items-center relative cursor-pointer;
+
+  &.self{
+    @apply text-radar_self;
+  }
+
+  &.boss{
+    @apply text-radar_boss;
+  }
+
+  &.mate{
+    @apply text-radar_mate;
+  }
+
+  &.inactive{
+    @apply opacity-30;
+  }
+
+  .content{
+    @apply text-primary;
+  }
+}

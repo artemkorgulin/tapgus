@@ -1,0 +1,23 @@
+{
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "arrowParens": "always",
+    "tabWidth": 4,
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "useTabs": false,
+    "tailwindFunctions": [
+        "classNames",
+        "cn",
+        "tw"
+    ],
+    "customFunctions": ["cn", "tw"],
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "prettier-plugin-classnames",
+        "prettier-plugin-merge"
+    ],
+    "tailwindPreserveWhitespace": false,
+    "endingPosition": "absolute-with-indent"
+}
+

@@ -1,0 +1,16 @@
+.sort_control{
+  @include app-text-secondary;
+  @apply text-secondary select-none;
+
+  &:after{
+    @apply content-box w-3.5 h-3.5 text-center;
+  }
+
+  &.asc{
+    @apply after:content-['↓'];
+  }
+
+  &.desc{
+    @apply after:content-['↑'];
+  }
+}

@@ -1,0 +1,39 @@
+.list_container{
+  @apply transition-opacity;
+
+  &.pending{
+    @apply opacity-50 cursor-wait;
+  }
+
+  &.big{
+    @apply grid gap-6 ml-12;
+    grid-template-columns: repeat(auto-fill, 264px);
+    grid-template-rows: repeat(auto-fill, 264px);
+
+    &.height_withCount{
+      grid-template-rows: repeat(auto-fill, 306px);
+    }
+
+    &.fallback{
+      @apply mid h-full;
+    }
+  }
+
+  &.small{
+    @apply grid gap-5 ml-12;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 3rem);
+
+    &.fallback{
+      @apply mid h-full;
+    }
+  }
+
+  .fallback{
+    @apply mid text-primary;
+
+    .loader{
+      @apply text-secondary;
+    }
+  }
+}

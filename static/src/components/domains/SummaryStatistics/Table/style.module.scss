@@ -1,0 +1,11 @@
+.table {
+    @apply ml-12 grid grid-cols-[auto,1fr,.8fr,.8fr,.8fr] gap-x-2;
+
+    .header_row {
+        @apply grid grid-cols-subgrid col-span-full text-secondary;
+    }
+
+    .time_val {
+        @apply text-center;
+    }
+}

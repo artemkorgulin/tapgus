@@ -1,0 +1,141 @@
+import { adapters } from 'api/adapters';
+import type { TTeamDetailsRaw } from 'api/api.v2.types';
+
+export const MOCK_DATA_RAW: TTeamDetailsRaw = {
+    name: 'Стратегический комитет',
+    previewText: `Поддержка и разработка корпоративного портала &quot;DatsTeam&quot;.
+        \n\n
+        Falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat.`,
+    detailText: `Поддержка и разработка корпоративного портала &quot;DatsTeam&quot;.
+        \n\n
+        Falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat. falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat. falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat.`,
+    picture:
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+    achievements: [
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+        '/bitrix/templates/bitrix24/frontend/Adviva/dist/assets/avatar.png',
+    ],
+    members: [
+        {
+            id: '3793',
+            idrole: '46965',
+            fname: 'Виктор',
+            lname: 'Большаков',
+            avatar: '/upload/main/9da/wstkj5a0kw9hplw3cinczjquwfydxgim/ad_517282517.jpg',
+            position: 'CIO',
+            positionid: '46964',
+            achievements: [
+                {
+                    image: 'idea',
+                    tooltip: 'idea',
+                },
+                {
+                    image: 'rocket',
+                    tooltip: 'rocket',
+                },
+                {
+                    image: 'settings',
+                    tooltip: 'settings',
+                },
+            ],
+            url: '/profile/3793/',
+        },
+        {
+            id: '6458',
+            idrole: '46966',
+            fname: 'Мария',
+            lname: 'Кербс',
+            avatar: '/upload/main/1e9/ohjb9o2brv5gzm80tokktxll0kmrl66z/ad_938577045.png',
+            position: 'CPMO',
+            positionid: '46967',
+            achievements: false,
+            url: '/profile/6458/',
+        },
+        {
+            id: '4771',
+            idrole: '46968',
+            fname: 'Сергей',
+            lname: 'Великанов',
+            avatar: '/upload/main/83c/snyp1wjlfa7u51pvr0ia89w8vajovopx/ad_33014325.png',
+            position: 'CTO',
+            positionid: '38613',
+            achievements: false,
+            url: '/profile/4771/',
+        },
+        {
+            id: '5012',
+            idrole: '46969',
+            fname: 'Михаил',
+            lname: 'Веневцев',
+            avatar: '/upload/main/719/uykin05cu0523hmgqbvee7mdsfzsjugn/ad_509403613.png',
+            position: 'CTO',
+            positionid: '38613',
+            achievements: false,
+            url: '/profile/5012/',
+        },
+        {
+            id: '7294',
+            idrole: '46970',
+            fname: 'Алексей',
+            lname: 'Денисов',
+            avatar: '/upload/main/b24/4lgm7e2sj31w5n2mpkp16052rtrrfrq1/ad_1846563882.png',
+            position: 'CTO',
+            positionid: '38613',
+            achievements: false,
+            url: '/profile/7294/',
+        },
+        {
+            id: '6466',
+            idrole: '46971',
+            fname: 'Михаэль',
+            lname: 'Сощин',
+            avatar: '/local/templates/it.codev.com/frontend/Adviva/dist/assets/avatar.png',
+            position: 'CTO',
+            positionid: '38613',
+            achievements: false,
+            url: '/profile/6466/',
+        },
+        {
+            id: '7494',
+            idrole: '46972',
+            fname: 'Павел',
+            lname: 'Бобровников',
+            avatar: '/upload/main/75c/bus0ifl1o6n2w8c1xrmk6sqxj24zdbje/ad_2039457596.png',
+            position: 'Head of Infrastructure',
+            positionid: '46973',
+            achievements: false,
+            url: '/profile/7494/',
+        },
+        {
+            id: '7327',
+            idrole: '46974',
+            fname: 'Геннадий',
+            lname: 'Шастин',
+            avatar: '/upload/main/f92/b051pfbxdfwcy3kr9xle2jv61a5xc7kv/ad_552651527.png',
+            position: 'CISO',
+            positionid: '46975',
+            achievements: false,
+            url: '/profile/7327/',
+        },
+        {
+            id: '7582',
+            idrole: '46977',
+            fname: 'Иван',
+            lname: 'Шипков',
+            avatar: '/upload/main/2e8/f29jjpcgx38bxvucn4ox1h2d4gfi600j/ad_2006697431.png',
+            position: 'CTPO',
+            positionid: '46976',
+            achievements: false,
+            url: '/profile/7582/',
+        },
+    ],
+    products: [],
+};
+
+export const MOCK_DATA = adapters.teamDetails(MOCK_DATA_RAW);

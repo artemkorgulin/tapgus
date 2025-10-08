@@ -1,0 +1,8 @@
+.avatar {
+    @include app-angled-corners-clip;
+    @apply shrink-0 relative;
+
+    .img{
+        @apply w-12 h-12;
+    }
+}

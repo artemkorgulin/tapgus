@@ -1,0 +1,1 @@
+export { TeamDetailsCrumb } from './crumb';

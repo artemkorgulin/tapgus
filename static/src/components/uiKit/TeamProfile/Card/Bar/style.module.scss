@@ -1,0 +1,12 @@
+.team_bar{
+  @apply flex flex-col h-full;
+
+  .achivs{
+    @apply bg-primary w-full max-h-full grow
+    pt-3 flex flex-col gap-3 items-center;
+
+    .achivs_more{
+      @apply text-white;
+    }
+  }
+}

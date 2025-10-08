@@ -1,0 +1,11 @@
+.role_item{
+  @apply w-full flex flex-row gap-2;
+  @apply text-tertiary hover:text-blue transition-colors;
+}
+
+.other{
+  @apply grid gap-6;
+  grid-template-rows: repeat(2, max-content);
+  grid-template-columns: repeat(2, 1fr);
+
+}

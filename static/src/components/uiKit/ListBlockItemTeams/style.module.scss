@@ -1,0 +1,40 @@
+.list_block_item{
+  @apply flex flex-row justify-between;
+  @apply w-full relative;
+
+  .hoverIcon{
+    @apply text-white;
+  }
+
+  .achivs_list{
+    @apply flex flex-row gap-3;
+  }
+
+  .member{
+    @apply flex flex-row gap-3;
+
+    .info{
+      @apply flex flex-col justify-between
+      text-tertiary transition-colors;
+
+      .title{
+        @include app-text-secondary;
+        @apply bg-blue px-2 py-[0.063rem]
+        text-center text-white;
+      }
+
+      .team{
+        @include app-text-primary;
+        @apply uppercase text-white text-[1.063rem];
+      }
+    }
+  }
+
+  &:hover{
+    .member{
+      .info{
+        @apply text-blue;
+      }
+    }
+  }
+}

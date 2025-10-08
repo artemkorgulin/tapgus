@@ -1,0 +1,16 @@
+.product_item{
+  @apply flex flex-col gap-2 relative;
+
+  .title{
+    @include app-text-primary;
+    @apply uppercase;
+  }
+
+  .container{
+    @apply relative;
+  }
+
+  .hover_icon, .hover_text{
+    @apply text-white text-center;
+  }
+}

@@ -1,0 +1,4 @@
+.nav {
+    @apply relative flex flex-row w-full box-border border-y border-gray;
+    @include app-counter-container;
+}

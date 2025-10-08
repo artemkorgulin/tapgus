@@ -1,0 +1,9 @@
+{
+    "common.form.submit": "Отправить",
+    "common.form.email": "Email",
+    "common.form.password": "Пароль",
+    "common.form_error.password_required": "Поле пароль обязательное!",
+    "common.form_error.email": "Некорректный email",
+    "common.form_error.email_required": "Поле почта обязательное!",
+    "common.sign_out": "Выход"
+}

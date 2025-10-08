@@ -1,0 +1,9 @@
+{
+    "common.form.submit": "Submit",
+    "common.form.email": "Email",
+    "common.form.password": "Password",
+    "common.form_error.password_required": "Password field is required!",
+    "common.form_error.email": "Invalid email",
+    "common.form_error.email_required": "Email field is required!",
+    "common.sign_out": "Sign out"
+}
