@@ -6,7 +6,7 @@ import { SLUG } from './path-slug';
 
 const BASE_ROUTES = {
     HOME: '/',
-    TEAMWORK: '/teamwork',
+    TAPGUSS: '/tapguss',
     TEAMS: '/teams',
     PRODUCTS: '/products',
     KNOWLEDGE: '/knowledge',
@@ -30,7 +30,7 @@ const USER_BASE = '/user';
 const USER_INDEX = `${USER_BASE}/${SLUG.USER_ID}`;
 const USER_ROUTES = createNestedRoutes(USER_INDEX, TEAMWORK_ROUTES);
 
-const VIEWER_INDEX = BASE_ROUTES.TEAMWORK;
+const VIEWER_INDEX = BASE_ROUTES.TAPGUSS;
 const VIEWER_ROUTES = createNestedRoutes(VIEWER_INDEX, TEAMWORK_ROUTES);
 
 const TEAMS_ROUTES = {

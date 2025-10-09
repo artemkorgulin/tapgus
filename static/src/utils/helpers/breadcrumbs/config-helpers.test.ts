@@ -5,7 +5,7 @@ import { createNestedRoutes } from './config-helpers';
 describe('Хелперы для создания роутов с хлебными крошками', () => {
     const BASE_ROUTES = {
         HOME: '/',
-        TEAMWORK: '/teamwork',
+        TAPGUSS: '/tapguss',
         TEAMS: '/teams',
         PRODUCTS: '/products',
         KNOWLEDGE: '/knowledge',
@@ -18,7 +18,7 @@ describe('Хелперы для создания роутов с хлебным�
 
     test('Создание вложенных роутов', () => {
         const TEAMWORK_NESTED_ROUTES = createNestedRoutes(
-            BASE_ROUTES.TEAMWORK,
+            BASE_ROUTES.TAPGUSS,
             {
                 TEAMWORK_STATISTICS: `/statistics`,
                 TEAMWORK_LEGEND: `/legend`,
