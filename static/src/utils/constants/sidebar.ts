@@ -28,7 +28,13 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         path: ROUTES.TEAMWORK,
         icon: TeamworkICO,
     },
-
+    {
+        key: ROUTES.ADMIN,
+        title: 'admin',
+        path: ROUTES.ADMIN,
+        icon: TeamsICO,
+        isDisabled: true,
+    },
     {
         key: ROUTES.TEAMS,
         title: 'Teams',

@@ -7,6 +7,7 @@ import { SLUG } from './path-slug';
 const BASE_ROUTES = {
     HOME: '/',
     TAPGUSS: '/tapguss',
+    ADMIN: '/admin',
     TEAMWORK: '/tapguss',
     TEAMS: '/teams',
     PRODUCTS: '/products',
@@ -16,6 +17,17 @@ const BASE_ROUTES = {
     LOGIN: '/login',
     LEGACY_LOGIN: '/legacy/login',
 };
+
+export const ADMIN_ROUTES = {
+    ADMIN_PAGE_ROUNDS: `/rounds`,
+    ADMIN_PAGE_ROUNDS_USER: `/rounds`,
+    ADMIN_PAGE_STATISTICS_ROUNDS: `/statistics-rounds`,
+    ADMIN_PAGE_COOLDOWN_ROUNDS: `/cooldown-rounds`,
+};
+
+const ADMIN_BASE = '/admin';
+const ADMIN_INDEX = `${ADMIN_BASE}/${SLUG.USER_ID}`;
+const ADMIN_USER_ROUTES = createNestedRoutes(ADMIN_INDEX, ADMIN_ROUTES);
 
 export const TEAMWORK_ROUTES = {
     TEAMWORK_STATISTICS: `/statistics`,
@@ -79,6 +91,7 @@ export const ROUTES = {
     },
     USER: {
         ...USER_ROUTES,
+        ...ADMIN_USER_ROUTES,
         INDEX: USER_INDEX,
         BASE: USER_BASE,
     },
