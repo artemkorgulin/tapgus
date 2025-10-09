@@ -1,6 +1,33 @@
 .main_layout{
   @apply overflow-hidden w-screen h-screen flex;
 
+  .wrapper_user{
+    margin: 0 auto;
+
+    .head_user{
+      h2 {
+        text-transform: capitalize;
+      }
+    }
+
+    .pic_user{
+      cursor: pointer;
+      img {
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    .points_user{
+      h2{
+        margin: 0 auto;
+        display: block;
+        width: 100px;
+        text-align: center;
+      }
+    }
+  }
+
   .sidebar{
     @apply z-50;
   }

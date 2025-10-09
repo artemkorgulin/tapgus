@@ -12,15 +12,10 @@ const auth = {
                         'Content-Type': 'application/json',
                     },
                     method: 'POST',
-                    credentials: 'include',
                     mode: 'cors',
                 },
             );
-            console.log(`${ENV_BASE_LEGACY_API_URL}/auth/checkauth`);
-            console.log(response.json());
             const { status }: TLegacyCheckAuthReq = await response.json();
-            console.log(status);
-            console.log(status);
             return status === 'success';
         } catch (e) {
             console.error(e);
