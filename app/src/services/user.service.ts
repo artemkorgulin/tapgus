@@ -38,6 +38,15 @@ export class UserService {
         return bcrypt.hash(password, salt);
     }
 
+    async checkUserLogin(login: string): Promise<boolean> {
+        const user = await this.userRepository.findByLogin(login);
+        if (user) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     async create(signupDto: SignupDto): Promise<User> {
         const { email, password, username } = signupDto;
         const user = new User();

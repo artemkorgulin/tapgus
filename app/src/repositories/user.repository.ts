@@ -41,6 +41,10 @@ export class UserRepository implements IUserRepository {
         return this.userRepository.findOne({ where: { email } });
     }
 
+    async findByLogin(login: string): Promise<User | null> {
+        return this.userRepository.findOne({ where: { login } });
+    }
+
     async create(userData: SignupDto): Promise<User> {
         const user = this.userRepository.create(userData);
         return this.userRepository.save(user);

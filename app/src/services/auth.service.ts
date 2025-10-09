@@ -1,12 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
-import { TokenJwtInterface } from "../interfaces/token-jwt.interface";
+import { UserService } from "./user.service";
 
 @Injectable()
 export class AuthService {
     private tokenType;
 
-    constructor(private readonly jwtService: JwtService) {
+    constructor(
+        private readonly jwtService: JwtService,
+        private readonly userService: UserService,
+    ) {
         this.tokenType = "bearer";
     }
 
@@ -22,6 +25,12 @@ export class AuthService {
             refresh_token: "",
             expires_in: expiresIn,
         };
+    }
+
+    public async loginCheckUser(
+        login: string
+    ): Promise<boolean> {
+        return await this.userService.checkUserLogin(login);
     }
 
     public getToken(

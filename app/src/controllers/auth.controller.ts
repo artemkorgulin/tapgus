@@ -33,14 +33,16 @@ export class AuthController {
     }
 
     @Post('login')
-    login(@Res({ passthrough: true }) res: Response) {
+    async login(@Res({passthrough: true}) res: Response) {
         let token;
+        let validateUser = false;
+        let payload = JwtModule.register({
+            secretOrPrivateKey: process.env.PRIVATE_KEY,
+            secret: process.env.PRIVATE_KEY,
+            signOptions: {expiresIn: process.env.PRIVATE_EXPIRE_IN},
+        });
         token = this.authService.generateTokenJwt(
-            JwtModule.register({
-                secretOrPrivateKey: process.env.PRIVATE_KEY,
-                secret: process.env.PRIVATE_KEY,
-                signOptions: { expiresIn: process.env.PRIVATE_EXPIRE_IN },
-            }),
+            payload,
             String(process.env.PRIVATE_EXPIRE_IN)
         );
 
@@ -51,15 +53,29 @@ export class AuthController {
             secure: false
         });
 
+        if (payload) {
+            let payloadObj = JSON.parse(String(payload));
+            validateUser = await this.authService.loginCheckUser(payloadObj.login);
+        }
+
         let subData = {
-            "data":{
+            "data": {
                 accessToken: token.access_token,
                 reload: 'N'
             }
         };
-        return {
-            data: subData
-        };
+
+        if (validateUser) {
+            return {
+                data: subData
+            };
+        } else {
+            return {
+                data: {
+                    "message": "user not found"
+                }
+            };
+        }
     }
 
     @Get('logout')

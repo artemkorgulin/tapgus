@@ -20,6 +20,10 @@ export class TblUserTable1759842286786 implements MigrationInterface {
                         type: 'varchar'
                     },
                     {
+                        name: 'login',
+                        type: 'varchar'
+                    },
+                    {
                         name: 'email',
                         type: 'varchar'
                     },

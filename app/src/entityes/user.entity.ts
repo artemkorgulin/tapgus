@@ -11,6 +11,7 @@ export class User extends BaseEntity {
 
     initialize() {
         this.id = "";
+        this.login = "";
         this.username = "";
         this.email = "";
         this.password = "";
@@ -19,6 +20,9 @@ export class User extends BaseEntity {
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
+
+    @Column()
+    login: string;
 
     @Column()
     username: string;
