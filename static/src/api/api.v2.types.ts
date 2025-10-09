@@ -77,6 +77,11 @@ export interface IListBlockItemTeams extends IBaseListItem {
     name: string;
     avatar: string;
 }
+export interface IListBlockItemRounds extends IBaseListItem {
+    accent: string;
+    name: string;
+    avatar: string;
+}
 
 export type TTeamMemberAchivRaw = {
     image: string;

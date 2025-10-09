@@ -13,7 +13,7 @@ export const loginLoader = async () => {
         }
 
         if (checkAuth()) {
-            return redirect(ROUTES.HOME);
+            return redirect(ROUTES.TAPGUSS);
         }
 
         return null;

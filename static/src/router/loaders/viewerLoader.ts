@@ -37,8 +37,9 @@ export const viewerLoader: LoaderFunction = async () => {
             return redirect(ROUTES.LOGIN);
         }
 
-        console.log("viewerLoader");
-
+        if (checkAuth()) {
+            return redirect(ROUTES.TAPGUSS);
+        }
         return redirect(ROUTES.LOGIN);
     } catch (error) {
         throw error;
