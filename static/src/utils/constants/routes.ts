@@ -87,6 +87,7 @@ export const ROUTES = {
     ...BASE_ROUTES,
     VIEWER: {
         ...VIEWER_ROUTES,
+        ...ADMIN_USER_ROUTES,
         INDEX: VIEWER_INDEX,
     },
     USER: {

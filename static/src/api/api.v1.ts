@@ -1,6 +1,7 @@
 import { ENV_BASE_LEGACY_API_URL } from 'app-env';
 
 import type { TLegacyCheckAuthReq } from './api.v1.types';
+import {setToken} from 'utils/helpers/auth';
 
 const auth = {
     checkAuth: async () => {
@@ -15,7 +16,10 @@ const auth = {
                     mode: 'cors',
                 },
             );
-            const { status }: TLegacyCheckAuthReq = await response.json();
+            const { status, token }: TLegacyCheckAuthReq = await response.json();
+            if(status === 'success'){
+                setToken(String(token));
+            }
             return status === 'success';
         } catch (e) {
             console.error(e);

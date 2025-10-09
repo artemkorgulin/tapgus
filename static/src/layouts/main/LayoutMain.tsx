@@ -7,6 +7,7 @@ import type { TComponent } from 'utils/types/elements';
 import css from './style.module.scss';
 import logoGus from "../../assets/gus/guss.webp";
 import {ENV_BASE_LEGACY_API_URL} from "../../app-env";
+import { getToken } from 'utils/helpers/auth';
 
 export const LayoutMain: TComponent<PropsWithChildren> = ({ children }) => {
     const userData = useLoaderData() as TViewerData | TViewerDataLegacy;
@@ -16,7 +17,7 @@ export const LayoutMain: TComponent<PropsWithChildren> = ({ children }) => {
     const tapGus = (tap: any) => {
         if (iUserPoints >= 0 && tap) {
             try {
-                let token = '';
+                let token = getToken();
                 let UserPoints = iUserPoints+1;
                 fetch(
                     `${ENV_BASE_LEGACY_API_URL}/user/tapguss`,
