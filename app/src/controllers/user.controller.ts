@@ -38,7 +38,7 @@ export class UserController {
         return this.userService.delete(param);
     }
     @Post('tapguss')
-    tapguss(@Param() param: { userId: number }) {
+    tapguss(@Param() param: { UserPoints: number }) {
         return this.userService.tap(param);
     }
 }

@@ -10,6 +10,8 @@ import { LoginResponseDto } from '../dto/loginResponse.dto';
 @Injectable()
 export class UserService {
 
+    private i: 0;
+
     constructor(private readonly userRepository: UserRepository) {}
 
     get() {
@@ -28,8 +30,8 @@ export class UserService {
     delete(param: { userId: number }) {
         return param;
     }
-    tap(param: { userId: number }) {
-        return param;
+    tap(param: { UserPoints: number }) {
+        return { status: "success" };
     }
 
     hashPassword(password: string, salt: string): Promise<string> {
