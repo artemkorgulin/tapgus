@@ -24,7 +24,7 @@ export const Summary: TComponent<TSumamryProps> = ({ products }) => {
             <div className={css.sum}>
                 <h1 className={css.h}>{products.length}</h1>
                 <span className={css.title}>
-                    {/* todo: resolve it on PCD-358 */}
+                    {/* todo: resolve it on*/}
                     {products.length > 1 ? 'team products' : 'team product'}
                 </span>
             </div>

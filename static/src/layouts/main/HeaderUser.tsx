@@ -34,7 +34,7 @@ export const HeaderUser: TComponent = () => {
                 Profile
             </ButtonWithCorners>
             <LogoutButton />
-            {/* todo: оставить/удалить в рамках PCD-751 */}
+            {/* todo: оставить/удалить в рамках */}
             {/* Пиксель для получения уведомлений */}
             <IframeBox
                 iframeRef={iframeRef}

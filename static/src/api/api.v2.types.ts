@@ -15,7 +15,7 @@ export type TLoginReq = {
     remember: boolean;
 };
 
-export type TLoginRes = { accessToken: string; reload: boolean };
+export type TLoginRes = { accessToken: string; token: string; reload: boolean };
 
 interface IUserTeam_DRAFT {
     fields: {
@@ -32,7 +32,6 @@ interface IUserTeam_DRAFT {
     achievements: unknown[];
 }
 
-// todo: change type on ready PCD-285
 export type TUserTeamsList_DRAFT = {
     [teamId: string]: IUserTeam_DRAFT;
 };

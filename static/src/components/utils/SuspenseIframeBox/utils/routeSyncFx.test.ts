@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { BITRIX_ROUTES } from './constants';
 import { routeSyncFx } from './routeSyncFx';
 
-const getAbsUrl = (pathname: string) => `https://codev.dats.tech${pathname}`;
+const getAbsUrl = (pathname: string) => `https://localhost${pathname}`;
 
 const testSync = (bitrixPath: string, reactPath: string) => {
     const navigate = vi.fn();

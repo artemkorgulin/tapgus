@@ -6,7 +6,7 @@ import { PageHeader } from 'components/uiKit/PageHeader';
 import { AddittionalFilters } from '../AdditionalFilters';
 import { Table } from '../Table';
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 const PAGE_HEADER = 'сводная статистика';
 
 const ModeValues = [

@@ -2,7 +2,7 @@ import { THEME } from 'utils/constants/theme';
 
 import type { LEGEND_ITEM } from './enum';
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 export const LABELS: Record<LEGEND_ITEM, string> = {
     self: 'Самооценка',
     mate: 'Коллеги',

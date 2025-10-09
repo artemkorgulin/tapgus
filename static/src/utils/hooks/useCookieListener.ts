@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 
 // todo: данный хук должен быть удален
 //  после реализации моста postMessage
-//  в https://jira.dats.tech/browse/PCD-269
 // export const useCookieListener = (isListenCookie: boolean, interval = 500) => {
 export const useCookieListener = (interval = 500) => {
     const navigate = useNavigate();

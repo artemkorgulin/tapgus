@@ -11,7 +11,7 @@ const Main = lazy(() => import('pages/profile/Main'));
 const SoftSkills = lazy(() => import('pages/profile/soft-skills'));
 const HardSkills = lazy(() => import('pages/profile/HardSkills'));
 
-// todo: add context in PCD-663
+// todo: add context in
 export const createAdminRoutes = (
     userRoutes: TProfileRoutes,
     routeProps: NonIndexRouteObject = {},

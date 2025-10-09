@@ -13,11 +13,11 @@ export const catchHandler =
     (errorHandlerFn = errorHandlerFnDefault) =>
     (error: AxiosError) => {
         if (isAxiosError<BitrixErrorData>(error)) {
-            // todo: research i18n correct usage in PCD-360
+            // todo: research i18n correct usage in
 
             errorHandlerFn(
                 error?.response?.data.message ||
-                    I18N.AXIOS_ERROR_BITRIX_UNKNOWN,
+                    I18N.AXIOS_ERROR_NODE_UNKNOWN,
             );
         } else {
             console.error(error);

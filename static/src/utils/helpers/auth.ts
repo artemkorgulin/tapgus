@@ -29,6 +29,7 @@ export const getToken = () => cookieHelpers.get(AUTH_COOKIE_TOKEN_KEY);
 
 export const clearAuth = (options = getCookieOptions()) => {
     cookieHelpers.remove(AUTH_COOKIE_KEY, options);
+    cookieHelpers.remove(AUTH_COOKIE_TOKEN_KEY, options);
 };
 
 export const checkAuth = () => cookieHelpers.has(AUTH_COOKIE_KEY);

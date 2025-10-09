@@ -13,7 +13,7 @@ type UseListViewProps = Pick<TListViewProps, 'rawData'> & {
     listSizeAnimationThreshold?: number;
 };
 
-// todo: i18n in PCD-360
+// todo: i18n in
 const locale = 'en-US';
 const DATA_EMPTY = 'No data';
 const DATA_NOT_FOUND = 'Data not found';

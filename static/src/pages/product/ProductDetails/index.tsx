@@ -18,11 +18,11 @@ import { MOCK_DATA } from './MOCK_DATA';
 
 const mockProps = getMockPropsLess(MOCK_DATA);
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 const NEWS_TITLE = 'team news';
 const TEAM_TITLE = 'team squad';
 
-// todo: Сейчас это клон TeamDetailsPage. Реализовать в рамках PCD-348
+// todo: Сейчас это клон TeamDetailsPage. Реализовать в рамках
 const ProductDetailsPage: TComponent = () => {
     const teamId = useSlugProductId();
 

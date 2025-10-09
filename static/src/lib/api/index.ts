@@ -6,7 +6,7 @@ import { clearAuth, getAuth } from 'utils/helpers/auth';
 
 const onReject = (error: unknown) => {
     if (error && isAxiosError(error) && error.response?.status === 401) {
-        // todo: заменить очистку на рефреш в рамках PCD-757
+        // todo: заменить очистку на рефреш в рамках
         clearAuth();
         return Promise.reject(error);
     }

@@ -17,7 +17,7 @@ export const ViewerInfo: TComponent = () => {
             <Avatar url={viewer.avatar} />
             <div className='flex flex-col justify-center'>
                 <p className='uppercase'>{viewer.fio}</p>
-                {/* todo: вывести email в PCD-351 */}
+                {/* todo: вывести email в */}
                 <address>sikorsky@adviva.com</address>
             </div>
         </div>

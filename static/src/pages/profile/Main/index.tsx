@@ -13,7 +13,7 @@ import { Stats } from 'components/uiKit/Stats';
 import { UserProfileCard } from 'components/uiKit/UserProfileCard';
 import { UserStatistics } from 'components/uiKit/UserStatistics';
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 const NEWS_TITLE = 'team news';
 const TEAM_TITLE = 'teams member';
 

@@ -28,7 +28,7 @@ export class AuthController {
     @Post('checkauth')
     checkauth() {
         return {
-            status: 'success'
+            status: 'fail'
         };
     }
 
@@ -53,6 +53,7 @@ export class AuthController {
 
         return {
             success: true,
+            token: token.access_token,
             message: 'success'
         };
     }

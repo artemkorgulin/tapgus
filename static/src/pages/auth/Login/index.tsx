@@ -14,7 +14,7 @@ import { Input } from 'components/uiKit/Input';
 import { Spinner } from 'components/uiKit/Spinner';
 import { ToggleBox } from 'components/uiKit/Togglebox';
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 const required = I18N.FORM_REQUIRED;
 
 const LoginPage: TComponent = () => {

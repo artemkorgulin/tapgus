@@ -10,7 +10,7 @@ type LinkElementProps = {
     url?: string;
 };
 
-// todo: i18n in PCD-360
+// todo: i18n in
 export const LinkElement: TComponent<LinkElementProps> = ({ url, onClick }) =>
     url ? (
         <Typography variant='secondary' className={css.link}>

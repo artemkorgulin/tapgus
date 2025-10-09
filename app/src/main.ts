@@ -7,10 +7,6 @@ import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
-  // Сообщим приложению, где искать наши views.
-  app.setBaseViewsDir(join(__dirname, '../views'));
-  // И укажем, какой шаблонизатор использовать
-  app.setViewEngine('pug');
   app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,

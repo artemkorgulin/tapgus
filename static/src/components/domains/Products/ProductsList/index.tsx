@@ -13,7 +13,7 @@ import { HoverElementContent } from 'components/uiKit/HoverElementContent';
 import { PageHeader } from 'components/uiKit/PageHeader';
 import { SortControl } from 'components/uiKit/SortControl';
 
-// todo: research i18n correct usage in PCD-360
+// todo: research i18n correct usage in
 const PAGE_HEADER = 'Products';
 const HOVER_TITLE = 'about product';
 

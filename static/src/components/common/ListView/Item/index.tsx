@@ -68,7 +68,7 @@ export const Item: TComponent<TListItemProps> = (props) => {
 
                 {isShowCount && members !== undefined ? (
                     <m.span layout='position' className={css.count}>
-                        {/* todo: resolve it on PCD-358 */}
+                        {/* todo: resolve it */}
                         {members} {members > 1 ? 'members' : 'member'}
                     </m.span>
                 ) : null}

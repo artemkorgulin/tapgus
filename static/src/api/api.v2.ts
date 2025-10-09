@@ -3,6 +3,7 @@ import type { GenericAbortSignal } from 'axios';
 import { axiosInstance, iframeInstance } from 'lib/api';
 import qs from 'qs';
 import { clearAuth, setAuth } from 'utils/helpers/auth';
+import {ENV_BASE_LEGACY_API_URL} from "../app-env";
 
 import type {
     TLoginReq,
@@ -15,16 +16,28 @@ import type {
     TUserDataRaw,
 } from './api.v2.types';
 
+let headers = {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+};
+
 const auth = {
     logIn: (data: TLoginReq) =>
         axiosInstance
-            .post<never, TLoginRes>('/personal/auth/', data)
+            .post<never, TLoginRes>(`${ENV_BASE_LEGACY_API_URL}/auth/login`, data, headers)
             .then((data) => {
-                setAuth(data.accessToken);
+                if(data.accessToken){
+                    setAuth(data.accessToken);
+                } else if(data.token){
+                    setAuth(data.token);
+                }
             }),
 
     logOut: () =>
-        axiosInstance.post('/personal/logout/').then(() => {
+        axiosInstance.post(`${ENV_BASE_LEGACY_API_URL}/auth/logout`).then(() => {
             clearAuth();
         }),
 };
