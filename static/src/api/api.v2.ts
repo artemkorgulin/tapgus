@@ -2,7 +2,7 @@ import { adapters } from 'api/adapters';
 import type { GenericAbortSignal } from 'axios';
 import { axiosInstance, iframeInstance } from 'lib/api';
 import qs from 'qs';
-import { clearAuth, setAuth } from 'utils/helpers/auth';
+import {clearAuth, setAuth, setToken} from 'utils/helpers/auth';
 import {ENV_BASE_LEGACY_API_URL} from "../app-env";
 
 import type {
@@ -21,18 +21,18 @@ let headers = {
     mode: 'cors',
     headers: {
         'Content-Type': 'application/json',
-    }
+    },
+    withCredentials: false
 };
 
 const auth = {
     logIn: (data: TLoginReq) =>
         axiosInstance
             .post<never, TLoginRes>(`${ENV_BASE_LEGACY_API_URL}/auth/login`, data, headers)
-            .then((data) => {
-                if(data.accessToken){
-                    setAuth(data.accessToken);
-                } else if(data.token){
-                    setAuth(data.token);
+            .then((response: any) => {
+                if(response.data.accessToken){
+                    setAuth(response.data.accessToken);
+                    setToken(response.data.accessToken);
                 }
             }),
 

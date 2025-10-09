@@ -1,10 +1,9 @@
-import { apiV1, apiV2 } from 'api';
+import { apiV1 } from 'api';
 import { ENV_USE_LEGACY_AUTH, ENV_USE_MOCKED_USER } from 'app-env';
 import type { LoaderFunction } from 'react-router-dom';
 import { redirect } from 'react-router-dom';
 import { MOCKED_VIEWER } from 'utils/constants/auth';
 import { ROUTES } from 'utils/constants/routes';
-import { catchHandler } from 'utils/helpers/api';
 import { checkAuth } from 'utils/helpers/auth';
 
 /**
@@ -38,11 +37,7 @@ export const viewerLoader: LoaderFunction = async () => {
             return redirect(ROUTES.LOGIN);
         }
 
-        const user = await apiV2.user.getMe().catch(catchHandler());
-
-        if (user) {
-            return user;
-        }
+        console.log("viewerLoader");
 
         return redirect(ROUTES.LOGIN);
     } catch (error) {

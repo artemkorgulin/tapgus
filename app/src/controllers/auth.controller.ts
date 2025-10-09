@@ -51,10 +51,14 @@ export class AuthController {
             secure: false
         });
 
+        let subData = {
+            "data":{
+                accessToken: token.access_token,
+                reload: 'N'
+            }
+        };
         return {
-            success: true,
-            token: token.access_token,
-            message: 'success'
+            data: subData
         };
     }
 
