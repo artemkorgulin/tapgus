@@ -3,10 +3,10 @@ import type { TTeamDetailsRaw } from 'api/api.v2.types';
 
 export const MOCK_DATA_RAW: TTeamDetailsRaw = {
     name: 'Стратегический комитет',
-    previewText: `Поддержка и разработка корпоративного портала &quot;DatsTeam&quot;.
+    previewText: `Поддержка и разработка корпоративного портала.
         \n\n
         Falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat.`,
-    detailText: `Поддержка и разработка корпоративного портала &quot;DatsTeam&quot;.
+    detailText: `Поддержка и разработка корпоративного портала.
         \n\n
         Falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat. falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat. falsea Lorem mollit cupidatat irure. Laborum magna falsea duis ullamco cillum dolor. Voluptate exercitation incididunt aliquip deserunt reprehenderit elit laborum.\n\nAliqua id fugiat nostrud irure ex duis ea quis id quis ad et. Sunt qui esse pariatur duis deserunt mollit dolore cillum minim tempor enim.  Elit aute irure tempor cupidatat incididunt sint deserunt ut voluptat.`,
     picture:

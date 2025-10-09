@@ -18,7 +18,7 @@ export const MOCKED_VIEWER: TUserData = {
     teams: new Array(23).fill(null).map((_, index) => ({
         id: String(index),
         accent: 'Frontend Developer',
-        name: `#${String(index).padStart(2, '0')} DatsTeam`,
+        name: `#${String(index).padStart(2, '0')}`,
         avatar: '',
     })),
 };
@@ -33,7 +33,7 @@ export const MOCKED_USER: TUserData = {
     teams: new Array(23).fill(null).map((_, index) => ({
         id: String(index),
         accent: 'Frontend Developer',
-        name: `#${String(index).padStart(2, '0')} DatsTeam`,
+        name: `#${String(index).padStart(2, '0')}`,
         avatar: '',
     })),
 };

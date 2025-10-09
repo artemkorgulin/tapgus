@@ -6,7 +6,6 @@ import type { SVGComponentProps } from 'utils/types/ui';
 import ProductsICO from 'assets/icons/analitic.svg?react';
 import KnowledgeICO from 'assets/icons/brain.svg?react';
 import CompanyICO from 'assets/icons/company.svg?react';
-import DatsteamICO from 'assets/icons/logo_white.svg?react';
 import RDPIco from 'assets/icons/rdp.svg?react';
 import TeamworkICO from 'assets/icons/rocket.svg?react';
 import TeamsICO from 'assets/icons/teams.svg?react';
@@ -56,13 +55,6 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         path: ROUTES.COMPANY,
         icon: CompanyICO,
         isDisabled: true,
-    },
-    {
-        key: ROUTES.DATSTEAM,
-        title: 'Datsteam',
-        path: ROUTES.DATSTEAM,
-        icon: DatsteamICO,
-        target: '_blank',
     },
     {
         key: ROUTES.RDP,

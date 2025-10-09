@@ -5,12 +5,12 @@ import { createNestedRoutes } from './config-helpers';
 describe('Хелперы для создания роутов с хлебными крошками', () => {
     const BASE_ROUTES = {
         HOME: '/',
-        TAPGUSS: '/tapguss',
+        TAPGUS: '/tapguss',
+        TEAMWORK: '/tapguss',
         TEAMS: '/teams',
         PRODUCTS: '/products',
         KNOWLEDGE: '/knowledge',
         COMPANY: '/company',
-        DATSTEAM: 'https://portal.dats.team/',
         LOGIN: '/login',
         LEGACY_LOGIN: '/legacy/login',
         PAGE_404: '/404',
@@ -18,7 +18,7 @@ describe('Хелперы для создания роутов с хлебным�
 
     test('Создание вложенных роутов', () => {
         const TEAMWORK_NESTED_ROUTES = createNestedRoutes(
-            BASE_ROUTES.TAPGUSS,
+            BASE_ROUTES.TEAMWORK,
             {
                 TEAMWORK_STATISTICS: `/statistics`,
                 TEAMWORK_LEGEND: `/legend`,
