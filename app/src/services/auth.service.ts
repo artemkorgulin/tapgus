@@ -27,7 +27,7 @@ export class AuthService {
         };
     }
 
-    public async loginCheckUser(
+    public loginCheckUser(
         login: string
     ): boolean {
         return this.userService.checkUserLogin(login);

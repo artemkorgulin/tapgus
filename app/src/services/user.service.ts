@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity';
 import { UserRepository } from '../repositories/user.repository';
 import { Request } from 'express';
@@ -11,8 +10,6 @@ import { LoginResponseDto } from '../dto/loginResponse.dto';
 @Injectable()
 export class UserService {
 
-    private i: 0;
-    @InjectRepository(User)
     constructor(private readonly userRepository: UserRepository) {}
 
     get(query:any): Promise<User[]> {
@@ -41,11 +38,7 @@ export class UserService {
 
     checkUserLogin(login: string): boolean {
         const user = this.userRepository.findByLogin(login);
-        if (user) {
-            return true;
-        } else {
-            return false;
-        }
+        return !!user;
     }
 
     async create(signupDto: SignupDto): Promise<User> {

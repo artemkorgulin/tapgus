@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Request } from 'express';
-import {RoundRepository} from "../repositories/round.repository";
-import {Rounds} from "../entities/rounds.entity";
+import { RoundRepository } from "../repositories/round.repository";
+import { Rounds } from "../entities/rounds.entity";
 
 @Injectable()
 export class RoundsService {
