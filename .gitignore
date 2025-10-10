@@ -1,13 +1,13 @@
 ./app/static/config
 ./app/static/controllers
+./app/static/database
 ./app/static/dto
-./app/static/entityes
+./app/static/entities
+./app/static/interceptors
 ./app/static/interfaces
 ./app/static/middlewares
-./app/static/models
 ./app/static/modules
 ./app/static/repositories
-./app/static/routes
 ./app/static/services
 ./app/static/app.js
 ./app/static/main.js

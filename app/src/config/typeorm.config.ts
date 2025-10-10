@@ -33,10 +33,12 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     username: process.env.TYPEORM_USERNAME,
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
-    entities: ["src/entities/**/*.entity{.ts,.js}"],
+    entities: [
+        path.resolve(`${__dirname}/../../../static/entities/**.entity{.ts,.js}`)
+    ],
     migrations: [
-        "src/database/migrations/*{.ts,.js}",
-        'src/database/seeders/*{.ts,.js}'
+        path.resolve(`${__dirname}/../../../static/database/migrations/*{.ts,.js}`),
+        path.resolve(`${__dirname}/../../../static/database/seeders/*{.ts,.js}`)
     ],
     synchronize: true,
     logging: false,
@@ -50,10 +52,10 @@ export const config = new DataSource({
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
     entities: [
-        path.resolve(`${__dirname}/../../**/**.entity{.ts,.js}`)
+        path.resolve(`${__dirname}/../../../static/entities/**.entity{.ts,.js}`)
     ],
     migrations: [
-        path.resolve(`${__dirname}/../../../database/seeders/*{.ts,.js}`)
+        path.resolve(`${__dirname}/../../../static/database/seeders/*{.ts,.js}`)
     ],
     migrationsTableName: 'seeders',
     logging: true,
