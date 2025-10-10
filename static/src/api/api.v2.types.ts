@@ -15,7 +15,19 @@ export type TLoginReq = {
     remember: boolean;
 };
 
+export type TRoundAddReq = {
+    id: string;
+};
+
+export type RoundsList = {
+    login: string;
+    password: string;
+    remember: boolean;
+};
+
 export type TLoginRes = { accessToken: string; reload: boolean; validateUser: boolean };
+export type TRoundListRes = { id: number; round_name: string; round_time: string; round_user: string; status: string };
+export type TRoundAddRes = { accessToken: string; reload: boolean; validateUser: boolean };
 
 interface IUserTeam_DRAFT {
     fields: {

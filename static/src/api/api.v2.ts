@@ -14,6 +14,7 @@ import type {
     TTeamsListRaw,
     TUserDataRaw,
 } from './api.v2.types';
+import {TRoundAddReq, TRoundAddRes, TRoundListRes} from "./api.v2.types";
 
 let headers = {
     method: 'POST',
@@ -38,6 +39,21 @@ const auth = {
         axiosInstance.post(`${ENV_BASE_LEGACY_API_URL}/auth/logout`).then(() => {
             clearAuth();
         }),
+};
+
+const rounds = {
+    listRounds: () =>
+        axiosInstance
+            .get<never, TRoundListRes>(`${ENV_BASE_LEGACY_API_URL}/rounds/all`),
+
+    addRound: (data: TRoundAddReq) =>
+        axiosInstance
+            .post<never, TRoundAddRes>(`${ENV_BASE_LEGACY_API_URL}/rounds`,data)
+            .then((response: any) => {
+                if(response.data.accessToken && response.data.validateUser){
+                    setAuth(response.data.accessToken);
+                }
+            })
 };
 
 const user = {
@@ -81,6 +97,7 @@ export const api = {
     iframe,
     auth,
     user,
+    rounds,
     teams,
     products,
 };

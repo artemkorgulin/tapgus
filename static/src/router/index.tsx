@@ -11,8 +11,8 @@ import { ACTION_ROUTES } from 'pages/actions';
 import { AUTH_ROUTERS } from 'pages/auth';
 import * as COMMON from 'pages/common';
 import { PRODUCT_ROUTERS } from 'pages/product';
-import { PROFILE_ROUTERS } from 'pages/profile';
 import { ADMIN_ROUTERS } from 'pages/admin';
+import { PROFILE_ROUTERS } from 'pages/profile';
 import { RDP_ROUTES } from 'pages/rdp';
 import { TEAM_ROUTERS } from 'pages/team';
 
@@ -39,7 +39,6 @@ if(String(getAuth()) == "undefined") {
             ),
             children: [
                 ...PROFILE_ROUTERS,
-                ...ADMIN_ROUTERS,
                 ...TEAM_ROUTERS,
                 ...PRODUCT_ROUTERS,
                 ...RDP_ROUTES,

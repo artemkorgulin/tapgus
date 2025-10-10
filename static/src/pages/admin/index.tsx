@@ -1,19 +1,49 @@
+import { lazy } from 'react';
 import { LayoutContent } from 'layouts/content';
-import { userLoader } from 'router/loaders/userLoader';
-import { viewerLoader } from 'router/loaders/viewerLoader';
 import { ROUTES } from 'utils/constants/routes';
 
-import { NAV_USER_REL, NAV_VIEWER_REL } from './constants';
-import { createAdminRoutes } from './helpers';
+import { NAV_VIEWER_ABS } from 'pages/profile/constants';
+
+const RoundsList = lazy(() => import('./ListRounds'));
+const StatistiscsRounds = lazy(() => import('./StatistiscsRounds'));
+const CooldownRounds = lazy(() => import('./CooldownRounds'));
+const RoundsUser = lazy(() => import('./RoundsUser'));
 
 export const ADMIN_ROUTERS = [
-    createAdminRoutes(ROUTES.VIEWER, {
-        loader: viewerLoader,
-        element: <LayoutContent navItems={NAV_VIEWER_REL} />,
-    }),
-
-    createAdminRoutes(ROUTES.USER, {
-        loader: userLoader,
-        element: <LayoutContent navItems={NAV_USER_REL} />,
-    }),
+    {
+        route: ROUTES.USER.ADMIN_PAGE_ROUNDS,
+        path: ROUTES.ADMIN,
+        element: (
+            <LayoutContent navItems={NAV_VIEWER_ABS}>
+                <RoundsList />
+            </LayoutContent>
+        ),
+    },
+    {
+        route: ROUTES.USER.ADMIN_PAGE_STATISTICS_ROUNDS,
+        path: ROUTES.ADMIN,
+        element: (
+            <LayoutContent navItems={NAV_VIEWER_ABS}>
+                <StatistiscsRounds />
+            </LayoutContent>
+        ),
+    },
+    {
+        route: ROUTES.USER.ADMIN_PAGE_ROUNDS_USER,
+        path: ROUTES.ADMIN,
+        element: (
+            <LayoutContent navItems={NAV_VIEWER_ABS}>
+                <RoundsUser />
+            </LayoutContent>
+        ),
+    },
+    {
+        route: ROUTES.USER.ADMIN_PAGE_COOLDOWN_ROUNDS,
+        path: ROUTES.ADMIN,
+        element: (
+            <LayoutContent navItems={NAV_VIEWER_ABS}>
+                <CooldownRounds />
+            </LayoutContent>
+        ),
+    },
 ];
