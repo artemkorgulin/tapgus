@@ -7,7 +7,7 @@ import {
     Post,
     Req,
     Render,
-    UseInterceptors,
+    UseInterceptors, Query,
 } from '@nestjs/common';
 import {RoundsService} from "../services/rounds.service";
 import {Request} from "express";
@@ -17,11 +17,13 @@ import {PostStatusInterceptor} from "../interceptors/post.interceptor";
 @UseInterceptors(PostStatusInterceptor)
 export class RoundsController {
     constructor(private roundsService: RoundsService) {}
-    @Get()
-    getRounds() {
-        return this.roundsService.get();
+
+    @Get("/all")
+    async getRounds(@Query() query: any) {
+        return this.roundsService.get(query);
     }
-    @Get('/:userId')
+
+    @Get('/:roundId')
     getRound(@Param() param: { roundId: number }) {
         return this.roundsService.getRound(param);
     }
@@ -29,7 +31,7 @@ export class RoundsController {
     store(@Req() req: Request) {
         return this.roundsService.create(req);
     }
-    @Patch('/:userId')
+    @Patch('/:roundId')
     update(@Req() req: Request, @Param() param: { roundId: number }) {
         return this.roundsService.update(req, param);
     }

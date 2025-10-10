@@ -35,37 +35,45 @@ export class AuthController {
 
     @Post('login')
     async login(@Res({passthrough: true}) res: Response, @Body() plainText: any) {
-        let token;
+        let token: any;
         let validateUser = false;
-        let payload = JwtModule.register({
-            secretOrPrivateKey: process.env.PRIVATE_KEY,
-            secret: process.env.PRIVATE_KEY,
-            signOptions: {expiresIn: process.env.PRIVATE_EXPIRE_IN},
-        });
-        token = this.authService.generateTokenJwt(
-            payload,
-            String(process.env.PRIVATE_EXPIRE_IN)
-        );
-
-        res.cookie('token', token.access_token, {
-            expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
-            sameSite: 'strict',
-            httpOnly: false,
-            secure: false
-        });
-
-        if (plainText) {
-            //let payloadObj = JSON.parse(String(plainText));
-            validateUser = await this.authService.loginCheckUser(plainText.login);
-        }
-
-        let subData = {
+        let subData: { data: { reload: string; validateUser: boolean; accessToken: string } } = {
             "data": {
-                accessToken: token.access_token,
+                accessToken: "",
                 reload: 'N',
-                validateUser: validateUser,
+                validateUser: false,
             }
         };
+
+        if (plainText) {
+            validateUser = await this.authService.loginCheckUser(plainText.login);
+            if(validateUser) {
+                let payload = JwtModule.register({
+                    secretOrPrivateKey: process.env.PRIVATE_KEY,
+                    secret: process.env.PRIVATE_KEY,
+                    signOptions: {expiresIn: process.env.PRIVATE_EXPIRE_IN},
+                });
+                token = this.authService.generateTokenJwt(
+                    payload,
+                    String(process.env.PRIVATE_EXPIRE_IN)
+                );
+
+                res.cookie('token', token.access_token, {
+                    expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
+                    sameSite: 'strict',
+                    httpOnly: false,
+                    secure: false
+                });
+
+                subData = {
+                    "data": {
+                        accessToken: token.access_token,
+                        reload: 'N',
+                        validateUser: validateUser,
+                    }
+                };
+            }
+        }
 
         return {
             data: subData

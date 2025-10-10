@@ -3,7 +3,7 @@ import { Request } from 'express';
 
 @Injectable()
 export class RoundsService {
-    get() {
+    get(query: any) {
         return [
             { name: 'Round 1', country: 'Moscow' },
             { name: 'Round 2', country: 'Piter' },

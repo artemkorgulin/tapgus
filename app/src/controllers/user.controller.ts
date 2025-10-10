@@ -6,6 +6,7 @@ import {
     Patch,
     Post,
     Req,
+    Query,
     UseInterceptors,
 } from '@nestjs/common';
 import { Request } from 'express';
@@ -17,15 +18,17 @@ import {PostStatusInterceptor} from "../interceptors/post.interceptor";
 @UseInterceptors(PostStatusInterceptor)
 export class UserController {
     constructor(private userService: UserService) {}
-    @Get()
-    getUsers() {
-        return this.userService.get();
+
+    @Get("/all")
+    async getUsers(@Query() query: any) {
+        return this.userService.get(query);
     }
+
     @Get('/:userId')
     getUser(@Param() param: { userId: number }) {
         return this.userService.getUser(param);
     }
-    @Post()
+    @Post("/create")
     store(@Req() req: Request) {
         return this.userService.createUser(req);
     }

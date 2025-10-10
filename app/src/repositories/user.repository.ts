@@ -3,8 +3,6 @@ import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { IUserRepository } from './user.repository.interface';
 import { SignupDto } from '../dto/signup.dto';
-import { LoginDto } from '../dto/login.dto';
-import { LoginResponseDto } from '../dto/loginResponse.dto';
 
 export class UserRepository implements IUserRepository {
     constructor(
@@ -17,7 +15,7 @@ export class UserRepository implements IUserRepository {
 
         if (query?.search) {
             queryBuilder.where(
-                'user.name LIKE :search OR user.email LIKE :search',
+                'user.login LIKE :search OR user.email LIKE :search',
                 { search: `%${query.search}%` }
             );
         }
@@ -64,7 +62,7 @@ export class UserRepository implements IUserRepository {
 
         if (query?.search) {
             queryBuilder.where(
-                'user.name LIKE :search OR user.email LIKE :search',
+                'user.login LIKE :search OR user.email LIKE :search',
                 { search: `%${query.search}%` }
             );
         }

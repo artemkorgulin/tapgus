@@ -14,8 +14,8 @@ export class UserService {
 
     constructor(private readonly userRepository: UserRepository) {}
 
-    get() {
-        return this.userRepository.findAll();
+    get(query:any) {
+        return this.userRepository.findAll(query);
     }
     getUser(param: { userId: number }) {
         return param;

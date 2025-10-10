@@ -30,7 +30,11 @@ export class AuthService {
     public async loginCheckUser(
         login: string
     ): Promise<boolean> {
-        return await this.userService.checkUserLogin(login);
+        try {
+            return await this.userService.checkUserLogin(login);
+        } catch (error) {
+            throw error;
+        }
     }
 
     public getToken(
