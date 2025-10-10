@@ -2,7 +2,7 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserController } from '../controllers/user.controller';
 import { UserService } from '../services/user.service';
-import { User } from '../entityes/user.entity';
+import { User } from '../entities/user.entity';
 import { UserRepository } from '../repositories/user.repository';
 import { TokenMiddleware } from '../middlewares/token.middleware';
 

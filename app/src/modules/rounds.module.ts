@@ -2,7 +2,7 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RoundsController } from '../controllers/rounds.controller';
 import { RoundsService } from '../services/rounds.service';
-import { Rounds } from '../entityes/rounds.entity';
+import { Rounds } from '../entities/rounds.entity';
 import {TokenMiddleware} from "../middlewares/token.middleware";
 
 @Module({

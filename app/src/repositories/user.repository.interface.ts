@@ -1,4 +1,4 @@
-import { User } from '../entityes/user.entity';
+import { User } from '../entities/user.entity';
 import { SignupDto } from '../dto/signup.dto';
 import { LoginDto } from '../dto/login.dto';
 import { LoginResponseDto } from '../dto/loginResponse.dto';

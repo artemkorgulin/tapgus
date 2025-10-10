@@ -8,6 +8,7 @@ import {
     HttpStatus,
     Res,
     Post,
+    Body,
     Req,
     UseInterceptors
 } from '@nestjs/common';
@@ -33,7 +34,7 @@ export class AuthController {
     }
 
     @Post('login')
-    async login(@Res({passthrough: true}) res: Response) {
+    async login(@Res({passthrough: true}) res: Response, @Body() plainText: any) {
         let token;
         let validateUser = false;
         let payload = JwtModule.register({
@@ -53,29 +54,22 @@ export class AuthController {
             secure: false
         });
 
-        if (payload) {
-            let payloadObj = JSON.parse(String(payload));
-            validateUser = await this.authService.loginCheckUser(payloadObj.login);
+        if (plainText) {
+            //let payloadObj = JSON.parse(String(plainText));
+            validateUser = await this.authService.loginCheckUser(plainText.login);
         }
 
         let subData = {
             "data": {
                 accessToken: token.access_token,
-                reload: 'N'
+                reload: 'N',
+                validateUser: validateUser,
             }
         };
 
-        if (validateUser) {
-            return {
-                data: subData
-            };
-        } else {
-            return {
-                data: {
-                    "message": "user not found"
-                }
-            };
-        }
+        return {
+            data: subData
+        };
     }
 
     @Get('logout')

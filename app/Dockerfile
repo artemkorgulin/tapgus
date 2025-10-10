@@ -17,6 +17,8 @@ ENV NODE_PATH /opt/server/node_modules
 WORKDIR /opt/server/
 
 COPY /*.json ./
-RUN npm i --save --legacy-peer-deps
+RUN npm i --save --legacy-peer-deps \
+    && npm install -g @nestjs/cli \
+    && npm install @nestjs/swagger swagger-ui-express
 
 CMD ["sh", "-c", "npm run build;npm run start"]

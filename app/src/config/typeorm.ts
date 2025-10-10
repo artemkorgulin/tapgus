@@ -10,11 +10,15 @@ const config = {
     port: `${process.env.TYPEORM_PORT}`,
     username: `${process.env.TYPEORM_USERNAME}`,
     password: `${process.env.TYPEORM_PASSWORD}`,
-    database: `${process.env.TYPEORM_NAME}`,
-    entities: ["dist/**/*.entity{.ts,.js}"],
-    migrations: ["dist/migrations/*{.ts,.js}"],
+    database: `${process.env.TYPEORM_DATABASE}`,
+    entities: ["src/entities/**/*.entity{.ts,.js}"],
+    migrations: [
+        "src/database/migrations/*{.ts,.js}",
+        'src/database/seeders/*{.ts,.js}'
+    ],
     autoLoadEntities: true,
-    synchronize: false,
+    synchronize: true,
+    logging: false,
 }
 
 export default registerAs('typeorm', () => config)

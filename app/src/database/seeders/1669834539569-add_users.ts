@@ -1,4 +1,4 @@
-import { User } from '../../entityes/user.entity';
+import { User } from '../../entities/user.entity';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 export class AddUsers1669834539569 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {

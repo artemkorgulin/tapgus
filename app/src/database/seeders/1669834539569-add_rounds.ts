@@ -1,4 +1,4 @@
-import { Rounds } from '../../entityes/rounds.entity';
+import { Rounds } from '../../entities/rounds.entity';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 export class AddRounds1669834539569 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
