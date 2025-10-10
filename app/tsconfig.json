@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "target": "ES5"
+    "target": "es6"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
