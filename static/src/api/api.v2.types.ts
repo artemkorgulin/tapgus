@@ -15,7 +15,7 @@ export type TLoginReq = {
     remember: boolean;
 };
 
-export type TLoginRes = { accessToken: string; reload: boolean };
+export type TLoginRes = { accessToken: string; reload: boolean; validateUser: boolean };
 
 interface IUserTeam_DRAFT {
     fields: {

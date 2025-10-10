@@ -7,18 +7,26 @@ import type { TComponent } from 'utils/types/elements';
 import css from './style.module.scss';
 import logoGus from "../../assets/gus/guss.webp";
 import {ENV_BASE_LEGACY_API_URL} from "../../app-env";
-import { getToken } from 'utils/helpers/auth';
+import {getAuth} from 'utils/helpers/auth';
 
 export const LayoutMain: TComponent<PropsWithChildren> = ({ children }) => {
     const userData = useLoaderData() as TViewerData | TViewerDataLegacy;
     const textRef = useRef<null | any>(null);
     const [iUserPoints, setiUserPoints] = useState(0);
 
-    if(getToken()) {
+    if(String(getAuth()) == "undefined") {
+        return (
+            <ViewerDataContext.Provider value={userData}>
+                <div className={css.main_layout}>
+                    {children}
+                </div>
+            </ViewerDataContext.Provider>
+        );
+    } else {
         const tapGus = (tap: any) => {
             if (iUserPoints >= 0 && tap) {
                 try {
-                    let token = getToken();
+                    let token = getAuth();
                     let UserPoints = iUserPoints+1;
                     fetch(
                         `${ENV_BASE_LEGACY_API_URL}/user/tapguss`,
@@ -85,14 +93,6 @@ export const LayoutMain: TComponent<PropsWithChildren> = ({ children }) => {
                             <h2 className={"points-user-head"} id={"points-user-head"} ref={textRef}>{iUserPoints}</h2>
                         </div>
                     </div>
-                </div>
-            </ViewerDataContext.Provider>
-        );
-    } else {
-        return (
-            <ViewerDataContext.Provider value={userData}>
-                <div className={css.main_layout}>
-                    {children}
                 </div>
             </ViewerDataContext.Provider>
         );

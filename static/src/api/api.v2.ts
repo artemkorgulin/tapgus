@@ -2,7 +2,7 @@ import { adapters } from 'api/adapters';
 import type { GenericAbortSignal } from 'axios';
 import { axiosInstance, iframeInstance } from 'lib/api';
 import qs from 'qs';
-import {clearAuth, setAuth, setToken} from 'utils/helpers/auth';
+import {clearAuth, setAuth} from 'utils/helpers/auth';
 import {ENV_BASE_LEGACY_API_URL} from "../app-env";
 
 import type {
@@ -12,7 +12,6 @@ import type {
     TTeamDetails,
     TTeamDetailsRaw,
     TTeamsListRaw,
-    TUserData,
     TUserDataRaw,
 } from './api.v2.types';
 
@@ -30,9 +29,8 @@ const auth = {
         axiosInstance
             .post<never, TLoginRes>(`${ENV_BASE_LEGACY_API_URL}/auth/login`, data, headers)
             .then((response: any) => {
-                if(response.data.accessToken){
+                if(response.data.accessToken && response.data.validateUser){
                     setAuth(response.data.accessToken);
-                    setToken(response.data.accessToken);
                 }
             }),
 
@@ -43,15 +41,6 @@ const auth = {
 };
 
 const user = {
-    getMe: (): Promise<TUserData> =>
-        axiosInstance
-            .get<never, TUserDataRaw>('/personal/')
-            .then(adapters.userData),
-
-    getOne: (id: string): Promise<TUserData> =>
-        axiosInstance
-            .post<never, TUserDataRaw>(`/personal/user/${id}/ `)
-            .then(adapters.userData),
 
     findMany: (params: { login?: string; fio?: string; email?: string }) =>
         axiosInstance

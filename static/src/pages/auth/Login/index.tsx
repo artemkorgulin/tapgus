@@ -13,6 +13,7 @@ import { ErrorMessage, FieldControl } from 'components/uiKit/FormFieldControl';
 import { Input } from 'components/uiKit/Input';
 import { Spinner } from 'components/uiKit/Spinner';
 import { ToggleBox } from 'components/uiKit/Togglebox';
+import {ROUTES} from "../../../utils/constants/routes";
 
 // todo: research i18n correct usage in
 const required = I18N.FORM_REQUIRED;
@@ -27,7 +28,7 @@ const LoginPage: TComponent = () => {
     const onSubmit: SubmitHandler<TLoginReq> = async (data) => {
         return await apiV2.auth
             .logIn(data)
-            .then(() => navigate('/'))
+            .then(() => navigate(`${ROUTES.TAPGUSS}`))
             .catch(catchHandler(setResErrorMessage));
     };
 

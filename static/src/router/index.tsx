@@ -17,37 +17,52 @@ import { RDP_ROUTES } from 'pages/rdp';
 import { TEAM_ROUTERS } from 'pages/team';
 
 import { viewerLoader } from './loaders/viewerLoader';
+import {getAuth} from "../utils/helpers/auth";
 
-const routeObject: RouteObject[] = [
-    ...AUTH_ROUTERS,
-    {
-        index: true,
-        loader: async () => redirect(ROUTES.VIEWER.INDEX),
-    },
-    {
-        path: ROUTES.HOME,
-        handle: setCrumb(CommonCrumb, 'home'),
-        loader: viewerLoader,
-        element: <LayoutMain />,
-        errorElement: (
-            <LayoutBlank>
-                <ErrorBoundary />
-            </LayoutBlank>
-        ),
-        children: [
-            ...PROFILE_ROUTERS,
-            ...ADMIN_ROUTERS,
-            ...TEAM_ROUTERS,
-            ...PRODUCT_ROUTERS,
-            ...RDP_ROUTES,
-            ...COMMON.BITRIX_FALLBACK_ROUTERS,
-            ...COMMON.ERROR_ROUTERS,
-        ],
-    },
+let routeObject: RouteObject[];
+if(String(getAuth()) == "undefined") {
+    routeObject = [
+        ...AUTH_ROUTERS,
+        {
+            index: true,
+            loader: async () => redirect(ROUTES.VIEWER.INDEX),
+        },
+        {
+            path: ROUTES.HOME,
+            handle: setCrumb(CommonCrumb, 'home'),
+            loader: viewerLoader,
+            element: <LayoutMain/>,
+            errorElement: (
+                <LayoutBlank>
+                    <ErrorBoundary/>
+                </LayoutBlank>
+            ),
+            children: [
+                ...PROFILE_ROUTERS,
+                ...ADMIN_ROUTERS,
+                ...TEAM_ROUTERS,
+                ...PRODUCT_ROUTERS,
+                ...RDP_ROUTES,
+                ...COMMON.BITRIX_FALLBACK_ROUTERS,
+                ...COMMON.ERROR_ROUTERS,
+            ],
+        },
 
-    ...ACTION_ROUTES,
-    ...COMMON.ERROR_ROUTERS,
-    ...COMMON.DEV_ROUTERS,
-];
+        ...ACTION_ROUTES,
+        ...COMMON.ERROR_ROUTERS,
+        ...COMMON.DEV_ROUTERS,
+    ];
+} else {
+    routeObject = [
+        {
+            path: ROUTES.HOME,
+            loader: viewerLoader,
+            element: <LayoutMain/>,
+            children: [
+                ...ADMIN_ROUTERS,
+            ],
+        }
+    ];
+}
 
 export const router = createBrowserRouter(routeObject);
