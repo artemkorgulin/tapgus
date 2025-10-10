@@ -21,6 +21,11 @@ import { JwtModule } from "@nestjs/jwt";
 @Controller('api/auth')
 @UseInterceptors(PostStatusInterceptor)
 export class AuthController {
+
+    private validateUser: boolean = false;
+    private tokenResp: any;
+    private subData: { data: { reload: string; validateUser: boolean; accessToken: string } };
+
     constructor(private authService: AuthService) {}
     @Get('token')
     token(@Param() param: { email: string }) {
@@ -35,48 +40,46 @@ export class AuthController {
 
     @Post('login')
     async login(@Res({passthrough: true}) res: Response, @Body() plainText: any) {
-        let token: any;
-        let validateUser = false;
-        let subData: { data: { reload: string; validateUser: boolean; accessToken: string } } = {
+        this.subData  = {
             "data": {
                 accessToken: "",
                 reload: 'N',
-                validateUser: false,
+                validateUser: this.validateUser,
             }
         };
 
         if (plainText) {
-            validateUser = this.authService.loginCheckUser(plainText.login);
-            if(validateUser) {
+            this.validateUser = this.authService.loginCheckUser(plainText.login);
+            if(this.validateUser) {
                 let payload = JwtModule.register({
                     secretOrPrivateKey: process.env.PRIVATE_KEY,
                     secret: process.env.PRIVATE_KEY,
                     signOptions: {expiresIn: process.env.PRIVATE_EXPIRE_IN},
                 });
-                token = this.authService.generateTokenJwt(
+                this.tokenResp = this.authService.generateTokenJwt(
                     payload,
                     String(process.env.PRIVATE_EXPIRE_IN)
                 );
 
-                res.cookie('token', token.access_token, {
+                res.cookie('token', this.tokenResp.access_token, {
                     expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
                     sameSite: 'strict',
                     httpOnly: false,
                     secure: false
                 });
 
-                subData = {
+                this.subData = {
                     "data": {
-                        accessToken: token.access_token,
+                        accessToken: this.tokenResp.access_token,
                         reload: 'N',
-                        validateUser: validateUser,
+                        validateUser: this.validateUser,
                     }
                 };
             }
         }
 
         return {
-            data: subData
+            data: this.subData
         };
     }
 
