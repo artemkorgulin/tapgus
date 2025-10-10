@@ -28,7 +28,7 @@ services:
     working_dir: /opt/server
     volumes:
       - ./app:/opt/server
-      - ../app/static:/opt/static
+      - ./app/static:/opt/static
       - ./app/node_modules:/opt/server/node_modules
     env_file:
       - .env
