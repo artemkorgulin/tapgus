@@ -20,7 +20,11 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
             username: process.env.TYPEORM_USERNAME,
             password: process.env.TYPEORM_PASSWORD,
             database: process.env.TYPEORM_DATABASE,
-            synchronize: false,
+            autoLoadEntities: true,
+            entities: [
+                path.resolve(`${__dirname}/../../../static/entities/**.entity{.ts,.js}`)
+            ],
+            synchronize: true,
             logging: true,
         };
     },
