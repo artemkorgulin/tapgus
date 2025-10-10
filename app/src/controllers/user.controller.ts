@@ -21,12 +21,24 @@ export class UserController {
 
     @Get("/all")
     async getUsers(@Query() query: any) {
-        return this.userService.get(query);
+        let subData: { data: {} } = {
+            "data": {}
+        };
+        subData.data = this.userService.get(query);
+        return {
+            data: subData
+        };
     }
 
     @Get('/:userId')
     getUser(@Param() param: { userId: number }) {
-        return this.userService.getUser(param);
+        let subData: { data: {} } = {
+            "data": {}
+        };
+        subData.data = this.userService.getUser(param);
+        return {
+            data: subData
+        };
     }
     @Post("/create")
     store(@Req() req: Request) {

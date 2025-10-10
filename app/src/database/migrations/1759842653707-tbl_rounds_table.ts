@@ -16,15 +16,27 @@ export class TblRoundsTable1759842653707 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
+                        name: 'round_active',
+                        type: 'varchar'
+                    },
+                    {
                         name: 'round_name',
                         type: 'varchar'
                     },
                     {
-                        name: 'round_time',
+                        name: 'round_user',
                         type: 'varchar'
                     },
                     {
-                        name: 'round_user',
+                        name: 'round_begin_time',
+                        type: 'varchar'
+                    },
+                    {
+                        name: 'round_end_time',
+                        type: 'varchar'
+                    },
+                    {
+                        name: 'round_status',
                         type: 'varchar'
                     }
                 ]

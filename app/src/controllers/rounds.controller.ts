@@ -20,16 +20,34 @@ export class RoundsController {
 
     @Get("/all")
     async getRounds(@Query() query: any) {
-        return this.roundsService.get(query);
+        let subData: { data: {} } = {
+            "data": {}
+        };
+        subData.data = this.roundsService.get(query);
+        return {
+            data: subData
+        };
     }
 
     @Get('/:roundId')
     getRound(@Param() param: { roundId: number }) {
-        return this.roundsService.getRound(param);
+        let subData: { data: {} } = {
+            "data": {}
+        };
+        subData.data = this.roundsService.getRound(param);
+        return {
+            data: subData
+        };
     }
     @Post()
     store(@Req() req: Request) {
-        return this.roundsService.create(req);
+        let subData: { data: {} } = {
+            "data": {}
+        };
+        subData.data = this.roundsService.create(req);
+        return {
+            data: subData
+        };
     }
     @Patch('/:roundId')
     update(@Req() req: Request, @Param() param: { roundId: number }) {
