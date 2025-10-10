@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../entities/user.entity';
 import { UserRepository } from '../repositories/user.repository';
 import { Request } from 'express';
@@ -11,10 +12,10 @@ import { LoginResponseDto } from '../dto/loginResponse.dto';
 export class UserService {
 
     private i: 0;
-
+    @InjectRepository(User)
     constructor(private readonly userRepository: UserRepository) {}
 
-    get(query:any) {
+    get(query:any): Promise<User[]> {
         return this.userRepository.findAll(query);
     }
     getUser(param: { userId: number }) {
@@ -38,8 +39,8 @@ export class UserService {
         return bcrypt.hash(password, salt);
     }
 
-    async checkUserLogin(login: string): Promise<boolean> {
-        const user = await this.userRepository.findByLogin(login);
+    checkUserLogin(login: string): boolean {
+        const user = this.userRepository.findByLogin(login);
         if (user) {
             return true;
         } else {

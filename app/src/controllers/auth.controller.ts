@@ -46,7 +46,7 @@ export class AuthController {
         };
 
         if (plainText) {
-            validateUser = await this.authService.loginCheckUser(plainText.login);
+            validateUser = this.authService.loginCheckUser(plainText.login);
             if(validateUser) {
                 let payload = JwtModule.register({
                     secretOrPrivateKey: process.env.PRIVATE_KEY,

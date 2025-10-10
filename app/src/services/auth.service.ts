@@ -29,12 +29,8 @@ export class AuthService {
 
     public async loginCheckUser(
         login: string
-    ): Promise<boolean> {
-        try {
-            return await this.userService.checkUserLogin(login);
-        } catch (error) {
-            throw error;
-        }
+    ): boolean {
+        return this.userService.checkUserLogin(login);
     }
 
     public getToken(
