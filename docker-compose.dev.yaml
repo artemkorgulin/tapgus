@@ -8,6 +8,7 @@ services:
     container_name: static
     build:
       context: ./static/ci
+    working_dir: /home/node/
     volumes:
       - ./static:/home/node:rw
     env_file:
