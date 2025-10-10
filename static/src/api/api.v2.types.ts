@@ -26,7 +26,7 @@ export type RoundsList = {
 };
 
 export type TLoginRes = { accessToken: string; reload: boolean; validateUser: boolean };
-export type TRoundListRes = { id: number; round_name: string; round_time: string; round_user: string; status: string };
+export type TRoundListRes = { id: number; round_active: string; round_name: string; round_user: string; round_begin_time: string; round_end_time: string; round_status: string };
 export type TRoundAddRes = { accessToken: string; reload: boolean; validateUser: boolean };
 
 interface IUserTeam_DRAFT {

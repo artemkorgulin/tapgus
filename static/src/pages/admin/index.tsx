@@ -2,7 +2,7 @@ import { lazy } from 'react';
 import { LayoutContent } from 'layouts/content';
 import { ROUTES } from 'utils/constants/routes';
 
-import { NAV_VIEWER_ABS } from 'pages/profile/constants';
+import { NAV_VIEWER_ABS } from 'pages/admin/constants';
 
 const RoundsList = lazy(() => import('./ListRounds'));
 const StatistiscsRounds = lazy(() => import('./StatistiscsRounds'));

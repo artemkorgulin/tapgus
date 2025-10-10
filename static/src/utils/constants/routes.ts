@@ -89,11 +89,13 @@ export const ROUTES = {
         ...VIEWER_ROUTES,
         ...ADMIN_USER_ROUTES,
         INDEX: VIEWER_INDEX,
+        INDEX_ADMIN: ADMIN_INDEX,
     },
     USER: {
         ...USER_ROUTES,
         ...ADMIN_USER_ROUTES,
         INDEX: USER_INDEX,
+        INDEX_ADMIN: ADMIN_INDEX,
         BASE: USER_BASE,
     },
     ...TEAMS_ROUTES,

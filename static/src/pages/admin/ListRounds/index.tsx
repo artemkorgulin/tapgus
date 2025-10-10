@@ -67,10 +67,10 @@ const ListRounds: TComponent = () => {
                     ListRoundsOut.map((value) => (
                         <div className={css.list_rounds_item} id={value["id"]}>
                             Round-Id: {value["id"]}
-                            Start: {value["round_time"]}
-                            End: {value["round_user"]}
+                            Start: {value["round_begin_time"]}
+                            End: {value["round_end_time"]}
                             <hr />
-                            Статус: {value["status"]}
+                            Статус: {value["round_status"]}
                         </div>
                     ))
                 }
