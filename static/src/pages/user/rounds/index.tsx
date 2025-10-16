@@ -47,7 +47,7 @@ const Rounds: TComponent = () => {
         roundsData();
     }, []);
 
-    const onSubmit: SubmitHandler<TRoundAddReq> = async (data) => {
+    const onSubmit: SubmitHandler<TRoundAddReq> = async () => {
         navigate(ROUTES.GAMER+""+ROUTES.VIEWER.GAMER_PAGE_ADDROUND);
     };
 

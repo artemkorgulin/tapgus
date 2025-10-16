@@ -69,7 +69,11 @@ const rounds = {
     addRound: (data: TRoundAddReq) =>
         axiosInstance
             .post<never, TRoundAddRes>(`${ENV_BASE_LEGACY_API_URL}/rounds`,data, headersPost)
-            .then((response: any) => {}),
+            .then((response: any) => {
+                if(response) {
+
+                }
+            }),
 
     roundId: (data: TRoundItemeq) =>
         axiosInstance
