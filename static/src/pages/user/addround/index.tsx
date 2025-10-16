@@ -25,6 +25,7 @@ const AddRound: TComponent = () => {
     const { register, handleSubmit, control } = useForm<TRoundAddReq>();
     const { errors, isSubmitting } = useFormState<TRoundAddReq>({ control });
     const userName = getSessionStorageOrDefault("userUserName","");
+    const userId = getSessionStorageOrDefault("userId","");
 
     useEffect(() => {
         const checkAdmin = async () => {
@@ -43,6 +44,7 @@ const AddRound: TComponent = () => {
     }, []);
 
     const onSubmit: SubmitHandler<TRoundAddReq> = async (data) => {
+        data.round_user = userId;
         return await apiV2.rounds
             .addRound(data)
             .then(() => navigate(ROUTES.GAMER))
