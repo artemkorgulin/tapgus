@@ -25,7 +25,6 @@ const AddRound: TComponent = () => {
     const { register, handleSubmit, control } = useForm<TRoundAddReq>();
     const { errors, isSubmitting } = useFormState<TRoundAddReq>({ control });
     const userName = getSessionStorageOrDefault("userUserName","");
-    const userId = getSessionStorageOrDefault("userId","");
 
     useEffect(() => {
         const checkAdmin = async () => {
