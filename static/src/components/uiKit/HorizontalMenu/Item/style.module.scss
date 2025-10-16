@@ -1,0 +1,92 @@
+$nav-item-height: calc(3rem - 0.25rem);
+$bottom-w-border-position: translateY(calc($nav-item-height + 2px));
+$bottom-b-border-position: translateY(1px);
+
+
+.nav_item {
+    @apply flex items-center relative;
+    @apply border-r border-solid border-gray;
+
+    .link {
+        @apply relative text-primary flex flex-col items-center;
+
+        .text {
+            @apply z-10 uppercase mx-6 flex items-center transition-colors ease-in-out;
+            @apply h-header2stHeight;
+        }
+
+        .num {
+            @apply z-0;
+            &::before {
+                @apply translate-y-0 transition-transform ease-in-out duration-500;
+                @apply absolute top-0 right-[0.625rem];
+                @apply text-gray font-light;
+                font-size: 2.125rem; // 34px
+                line-height: 2.875rem;
+            }
+        }
+
+        .cross{
+            @apply absolute top-[-13px] right-[-13px];
+        }
+
+        &::before,
+        &::after {
+            @apply content-box h-[1px];
+            @apply transition ease-in-out;
+            transition-property: transform, background-color;
+        }
+        &::before {
+            @apply bg-white;
+            width: calc(100% - 2.5rem);
+            transform: scaleX(0) $bottom-w-border-position;
+        }
+        &::after {
+            @apply bg-black;
+            width: calc(100% - 1.5rem * 2);
+            transform: scaleX(0) $bottom-b-border-position;
+        }
+
+        &:hover,
+        &.active {
+            .num {
+                &::before {
+                    transform: translateY(-0.5rem);
+                }
+            }
+            &::before {
+                transform: scaleX(1) $bottom-w-border-position;
+            }
+            &::after {
+                transform: scaleX(1) $bottom-b-border-position;
+            }
+        }
+
+        &.active {
+            .text {
+                @apply text-blue;
+            }
+            &::after {
+                @apply bg-blue;
+            }
+        }
+    }
+
+    &.disabled {
+        .link {
+            @apply text-secondary pointer-events-none;
+            .text {
+                @apply text-secondary;
+            }
+
+            &.active {
+                .text {
+                    @apply text-secondary;
+                }
+                &::after {
+                    @apply bg-secondary;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,96 @@
+
+.button_with_corners {
+    @apply relative;
+
+    &.solid_color{
+        .icon path{
+            @apply fill-current;
+        }
+    }
+
+    &.primary {
+        &::before,
+        &::after {
+            @apply bg-primary;
+        }
+
+        .button {
+            @apply bg-primary transition-colors;
+
+            .icon {
+                @apply opacity-10;
+                @apply transition-opacity;
+            }
+        }
+
+        &:hover {
+            .button {
+                @apply bg-blue;
+            }
+        }
+    }
+
+    //todo: исправить этот вариант, т.к. годится только для кнопки с иконкой
+    &.outline_gray {
+        @apply w-12 h-12 bg-contain text-gray;
+        background: url(~/assets/icons/button-outline-gray.svg) no-repeat;
+
+        &::before,
+        &::after {
+            @apply bg-gray;
+        }
+
+        .button {
+            @apply px-0 justify-center transition-colors text-secondary;
+        }
+
+        &:hover {
+            .button {
+                @apply text-tertiary;
+            }
+        }
+
+        &.bg {
+            @apply w-52;
+            background: url(~/assets/icons/button-outline-gray-bg.svg) no-repeat;
+        }
+    }
+
+    //todo: исправить этот вариант, т.к. годится только для кнопки с иконкой
+    &.outline_tertiary {
+        @apply w-12 h-12 bg-contain text-gray; // sm
+        background: url(~/assets/icons/button-outline-tertiary.svg) no-repeat; // sm
+
+        &::before,
+        &::after {
+            @apply bg-tertiary;
+        }
+
+        .button {
+            @apply px-0 justify-center transition-colors text-secondary;
+        }
+
+        &:hover {
+            .button {
+                @apply text-tertiary;
+            }
+        }
+    }
+
+    .button {
+        @apply px-6 h-12 flex flex-row gap-3 justify-center items-center;
+        @apply uppercase text-white;
+    }
+
+    &:hover {
+        .button {
+            .icon {
+                @apply opacity-100;
+            }
+        }
+    }
+
+    &:disabled{
+        @apply pointer-events-none;
+    }
+}

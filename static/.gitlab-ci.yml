@@ -1,0 +1,4 @@
+include:
+  - project: 'guss/ops/deploy'
+    ref: master
+    file: 'guss/guss-front/.gitlab-ci.yml'

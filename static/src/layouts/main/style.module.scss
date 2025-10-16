@@ -1,0 +1,112 @@
+.main_layout{
+  @apply overflow-hidden w-screen h-screen flex;
+
+  .wrapper_user{
+    margin: 0 auto;
+
+    .head_user{
+      h2 {
+        text-transform: capitalize;
+      }
+    }
+
+    .pics_block_disabled {
+      .pic_user{
+        display: none;
+      }
+    }
+
+    .pics_block {
+      cursor: pointer;
+      .pic_user_is_disabled{
+        display: none;
+      }
+    }
+
+    .pic_user_is_disabled{
+
+    }
+
+    .points_user_head {
+      display:block;
+    }
+
+    .points_user_coldown_block {
+      display:block;
+    }
+
+    .points_user_coldown_head {
+      font-size: x-large;
+      line-height: 3rem;
+      text-transform: lowercase;
+      text-align: center;
+    }
+
+    .points_user_coldown {
+      font-size: x-large;
+      line-height: 3rem;
+      text-transform: lowercase;
+      text-align: center;
+    }
+
+    .points_user_duration {
+      font-size: x-large;
+      line-height: 3rem;
+      text-transform: lowercase;
+      text-align: center;
+    }
+
+    .points_user_my {
+      margin: 0 auto;
+      display: block;
+      width: 100px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .points_user{
+      h2{
+        margin: 0 auto;
+        display: block;
+        width: 100px;
+        text-align: center;
+      }
+    }
+  }
+
+  .sidebar{
+    @apply z-50;
+  }
+
+  .content_container{
+    @apply flex flex-col grow basis-auto overflow-x-hidden overflow-y-auto;
+
+    .header_container{
+      @apply z-40 bg-milk;
+
+      .top_header{
+        @apply h-header1stHeight p-0 py-3 pl-[5.25rem] flex flex-row gap-12 justify-between;
+
+        .search_container{
+          @apply flex py-3 flex-row gap-6 shrink-0 ml-3 w-[13.75rem];
+        }
+      }
+    }
+
+    .content{
+      @apply p-6 h-full;
+    }
+  }
+}
+
+.splashScreen_main{
+  @apply static flex flex-col justify-center items-center w-full min-h-full h-auto;
+}
+
+.user_elements{
+  @apply py-3 pr-6 flex flex-row gap-6 justify-center cursor-pointer;
+}
+
+.user_elements_with_iframe{
+  @apply flex flex-row gap-0 w-full;
+}

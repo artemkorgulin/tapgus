@@ -1,0 +1,32 @@
+.primary{
+  @apply not-italic
+  font-semibold font-primary text-base;
+}
+
+.secondary{
+  @apply not-italic
+  font-medium font-secondary text-sm;
+}
+
+.h1{
+  @apply not-italic uppercase
+  font-semibold font-primary text-h1;
+}
+
+.h2{
+  @apply not-italic uppercase
+  font-semibold font-primary text-h2;
+}
+
+.h3{
+  @apply not-italic uppercase
+  font-semibold font-primary text-h3;
+}
+
+.monospace{
+  @apply tabular-nums;
+}
+
+.noWrap{
+  @apply whitespace-nowrap;
+}

@@ -1,0 +1,74 @@
+.cross{
+  @apply relative w-[1.563rem] h-[1.563rem];
+
+  .icon{
+    @apply absolute w-full h-full top-0 left-0;
+  }
+
+  .underlay{
+    @apply text-milk scale-[0.8];
+  }
+
+  .solid{
+    @apply text-milk scale-[0.8];
+  }
+
+  .masked {
+    mask-size: contain;
+  }
+
+  &.sm {
+    .masked {
+      mask: url(./svg/mask-sm.svg) no-repeat;
+    }
+  }
+
+  &.md {
+    .masked {
+      mask: url(./svg/mask-md.svg) no-repeat;
+    }
+  }
+
+  .x {
+    @apply scale-x-[0.8];
+  }
+  .y {
+    @apply scale-y-[0.8];
+  }
+
+  .dynamic, .underlay{
+    @apply transition-transform;
+  }
+
+  &:hover, &.hovered{
+    .dynamic {
+      &.x {
+        @apply scale-x-100;
+      }
+      &.y {
+        @apply scale-y-100;
+      }
+    }
+
+    .underlay {
+      @apply scale-100;
+    }
+  }
+}
+
+.hoveredContainer:hover{
+  .cross{
+    .dynamic {
+      &.x {
+        @apply scale-x-100;
+      }
+      &.y {
+        @apply scale-y-100;
+      }
+    }
+
+    .underlay {
+      @apply scale-100;
+    }
+  }
+}

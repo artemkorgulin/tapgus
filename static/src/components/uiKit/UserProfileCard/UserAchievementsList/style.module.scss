@@ -1,0 +1,21 @@
+.achievements_list{
+  @apply grow-0 shrink-0 w-full max-w-[270px] h-[65px] text-blue relative;
+
+  .list{
+    @apply flex flex-row gap-6 overflow-x-scroll overflow-y-hidden pb-6;
+
+    .item{
+      @apply flex flex-col gap-2 items-center shrink-0;
+
+      .title{
+        @apply whitespace-nowrap;
+        @apply text-center leading-[1];
+      }
+    }
+  }
+
+  &:before{
+    @apply content-box h-[calc(100%+4px)] w-12 absolute top-[-2px] right-[-2px];
+    @apply bg-gradient-to-r from-transparent to-primary;
+  }
+}

@@ -1,0 +1,93 @@
+.button {
+  @apply flex flex-row items-center
+  transition-colors
+  text-white uppercase;
+
+  $opacity-from: 0.1;
+  $opacity-to: 1;
+
+  &.solid{
+    @apply bg-blue;
+
+    &:hover{
+      @apply bg-blueLight;
+    }
+
+    &:disabled{
+      @apply bg-secondary opacity-100;
+    }
+  }
+
+  &.opacityInvert {
+    &:not(&.disabled) {
+      .icon{
+        opacity: $opacity-to;
+      }
+      &:hover {
+        .icon {
+          opacity: $opacity-from;
+        }
+      }
+    }
+  }
+
+  &.control{
+    @apply text-secondary;
+
+    &:hover, &.active {
+      @apply text-blue;
+    }
+  }
+
+  &.underlay{
+    @apply text-white pr-6 relative;
+
+  }
+
+  &:not(&.disabled) {
+    .icon{
+      @apply transition-opacity;
+      opacity: $opacity-from;
+    }
+    &:hover {
+      .icon {
+        opacity: $opacity-to;
+      }
+    }
+  }
+
+  .icon, .content{
+    @apply z-10;
+  }
+
+  &.disabled {
+    @apply cursor-default pointer-events-none opacity-30;
+  }
+
+  &.likeTab {
+    @apply relative text-primary w-fit;
+
+    &:before,
+    &:after{
+      @apply content-box block h-[1px]
+      bg-black absolute -top-[calc(0.75rem+1px)];
+    }
+
+    &:before{
+      @apply right-[calc(100%-1.5rem)] w-6
+      transition-transform duration-base origin-right scale-x-0;
+
+      &:hover {
+        @apply scale-100;
+      }
+    }
+
+    &:after{
+      @apply right-0 w-[calc(100%-1.5rem)];
+    }
+  }
+
+  &:disabled{
+    @apply pointer-events-none opacity-30;
+  }
+}

@@ -1,0 +1,26 @@
+.user_card {
+  @apply w-[528px] h-[288px] shrink-0 bg-primary
+  flex flex-row justify-between pr-6;
+
+  .avatar{
+    @apply w-[234px] relative;
+
+    .img{
+      @apply absolute top-1/2 left-1/2 h-full w-auto object-cover;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .meta{
+    @apply grow p-6 pr-0;
+
+    .container {
+      @apply h-full max-w-full text-white
+      flex flex-col gap-3 justify-between;
+
+      .username{
+        @apply shrink overflow-hidden line-clamp-2;
+      }
+    }
+  }
+}

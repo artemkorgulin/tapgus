@@ -1,0 +1,30 @@
+.notify{
+    @apply relative cursor-default;
+    @apply flex flex-col justify-center;
+
+    .container {
+        @apply absolute top-[calc(100%+1.5rem)] right-0 w-[523px];
+        @apply bg-primary p-6 z-50 pr-5;
+
+        &:before{
+            @apply content-box w-0 h-0;
+            @apply absolute -top-6 right-0;
+            @apply border-solid;
+            border-color: rgba(0,0,0,0) rgba(0,0,0,0) theme('colors.primary') rgba(0,0,0,0);
+            border-width: 0 0 24px 24px;
+        }
+
+        .list {
+            @apply overflow-y-auto max-h-[50vh];
+            @apply flex flex-col gap-[1.125rem] pr-1;
+        }
+    }
+
+    .overlay{
+        @apply fixed w-screen h-screen z-40 top-0 right-0 bg-milk opacity-10;
+    }
+
+    .empty{
+        @apply text-white text-center;
+    }
+}

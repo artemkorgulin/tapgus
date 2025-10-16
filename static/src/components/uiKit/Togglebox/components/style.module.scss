@@ -1,0 +1,119 @@
+.toggle{
+  @apply relative w-min h-min;
+  @apply flex flex-row gap-3 items-center cursor-pointer select-none;
+
+  .input{
+    @apply opacity-0 w-0 h-0;
+
+    &:checked + .focusFilter .mark {
+      &.mod_check, &.mod_radio {
+        &:before{
+          @apply opacity-100;
+        }
+        &:after {
+          @apply opacity-100 scale-100;
+        }
+      }
+
+      &.mod_switch {
+        @apply bg-blue;
+
+        &:before {
+          @apply translate-x-[50%];
+        }
+      }
+    }
+
+    &:disabled + .focusFilter .mark {
+      &.mod_check, &.mod_radio {
+        background: url(svg/checked-bg-disabled.svg);
+
+        &:before {
+          background: url(svg/checked-bg-disabled.svg);
+        }
+        &:after {
+          @apply bg-milk;
+        }
+      }
+      &.mod_switch {
+        @apply bg-gray;
+
+        &:before{
+          @apply bg-white;
+        }
+      }
+    }
+
+    &:focus + .focusFilter {
+      filter: drop-shadow(0 0 2px theme('colors.blueLight'));
+    }
+  }
+
+  // ====== default state =======
+  .focusFilter {
+    filter: drop-shadow(0 0 0 theme('colors.blueLight'));
+    transition: filter 0.15s ease-in-out;
+
+    .mark_container {
+      @apply inline-block relative;
+
+      &.mod_switch {
+        @apply w-9 h-6;
+      }
+
+      &.mod_check, &.mod_radio {
+        @apply w-6 h-6;
+      }
+
+      .mark{
+        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0;
+        @apply transition-colors duration-base;
+
+        &.mod_check, &.mod_radio{
+          background: url(svg/unchecked-bg.svg);
+
+          &:before, &:after{
+            @apply content-box absolute h-6 w-6;
+            @apply transition-all duration-base;
+
+            @apply bg-white;
+            mask-size: contain;
+          }
+
+          &:before{
+            background: url(svg/checked-bg.svg);
+            @apply opacity-0;
+          }
+          &:after{
+            @apply opacity-0 scale-150;
+          }
+        }
+
+        &.mod_check {
+          &:after{
+            mask: url(svg/checked-check.svg) no-repeat;
+          }
+        }
+
+        &.mod_radio{
+          &:after{
+            mask: url(svg/checked-radio.svg) no-repeat;
+          }
+        }
+
+        &.mod_switch {
+          @apply bg-secondary;
+          @apply flex items-center justify-center;
+
+          &:before {
+            @apply content-box w-3 h-3;
+            @apply bg-white transition duration-base;
+            @apply left-[4px] bottom-[4px];
+            @apply -translate-x-[50%];
+          }
+        }
+      }
+    }
+
+  }
+}

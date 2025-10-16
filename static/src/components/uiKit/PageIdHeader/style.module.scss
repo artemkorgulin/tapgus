@@ -1,0 +1,14 @@
+.idx_header{
+  @apply relative pt-6 flex flex-col gap-6;
+
+  &:before{
+    content: attr(data-id);
+    @apply absolute top-2 -left-3 text-h1 text-gray z-0 uppercase;
+    font-weight: 300;
+  }
+
+  .head{
+    @apply relative z-10;
+    line-height: 3rem;
+  }
+}

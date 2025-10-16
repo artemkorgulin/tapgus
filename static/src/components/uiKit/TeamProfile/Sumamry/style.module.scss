@@ -1,0 +1,51 @@
+.summary {
+  @apply grid gap-6 place-self-end;
+  grid-template-columns: repeat(5, 6rem);
+  grid-template-rows: 10rem 8.25rem;
+
+  .sum{
+    @apply p-[1.125rem] flex flex-col gap-2 justify-end;
+    @apply col-start-5;
+
+    .h{
+      @apply -ml-[0.188rem];
+    }
+
+    .title{
+      @apply text-secondary uppercase;
+      line-height: 142.857%;
+    }
+  }
+
+  .stats_first{
+    @apply col-start-1 row-start-2;
+  }
+  .stats_second{
+    @apply col-start-3 row-start-2;
+  }
+
+  .rating{
+    @apply relative bg-blue p-3 shadow-card;
+    @apply flex flex-col justify-between;
+    @apply col-start-5 row-start-2;
+
+    &:before{
+      @apply content-box block w-[58px] h-[74px];
+      @apply absolute bottom-3 right-3 z-0;
+    }
+
+    &:after{
+      @apply content-box block w-6 h-6;
+      @apply bg-[url(~/assets/icons/rating-star.svg)];
+      @apply absolute top-3 right-3;
+    }
+
+    .label{
+      @apply text-[#97E7FE];
+    }
+
+    .numbers{
+      @apply text-white z-10 leading-none text-center;
+    }
+  }
+}

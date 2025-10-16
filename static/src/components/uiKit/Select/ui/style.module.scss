@@ -1,0 +1,65 @@
+.customSelect{
+  @apply relative text-primary block flex-1 cursor-text;
+
+  &.variant_beveled {
+      background: url(~/assets/icons/search-bordered.svg), theme('colors.milk');
+      background-position-y: 0;
+
+      &:hover, &:focus-within{
+        background-position-y: -48px;
+      }
+
+    .menu{
+      background-color: unset;
+      @apply shadow-card;
+      @apply w-[calc(100%-0.75rem)];
+    }
+  }
+
+  &.variant_cornered {
+    &:after {
+      @apply content-box absolute w-full h-full top-0 left-0;
+      @apply pointer-events-none;
+    }
+
+    .control{
+
+      .icon{
+        @apply text-secondary;
+      }
+
+      &Focus, &:hover{
+        .icon{
+          @apply text-primary;
+        }
+      }
+    }
+  }
+
+
+  &.variant_default {
+    .control {
+      &.menuIsOpened {
+        @apply shadow-card;
+      }
+    }
+  }
+
+  .control{
+    box-shadow: none;
+
+    &Focus, &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .menu{
+    @apply animate-append;
+
+    &:before{
+      @apply content-box absolute -z-10 bg-white;
+      @apply shadow-card pointer-events-none;
+      @apply w-full h-full;
+    }
+  }
+}

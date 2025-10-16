@@ -1,0 +1,71 @@
+.label {
+    @apply relative text-primary block w-full cursor-text;
+    @apply flex flex-row;
+
+    .leftElement{
+        @apply absolute top-3 left-3;
+    }
+    .rightElement{
+        @apply absolute top-3 right-3;
+    }
+
+    .input {
+        @apply pl-4 min-w-[220px] min-h-[48px] max-h-[48px] w-full;
+
+        &:focus-visible, &:hover {
+            @apply outline-none;
+        }
+    }
+
+    &.hasLeftElement{
+        .input{
+            @apply pl-12;
+        }
+    }
+
+    &.hasRightElement{
+        .input{
+            @apply pr-12;
+        }
+    }
+
+    &.hasError{
+        .input{
+            @apply outline-none;
+        }
+    }
+
+    &.disabled{
+        pointer-events: none;
+    }
+
+    &::placeholder {
+        @apply text-gray;
+    }
+
+    &.variant-cut_corner {
+        .input {
+            @apply min-w-[220px] min-h-[48px] shadow-none;
+            border-image-source: url(~/assets/icons/search-bordered-default.svg);
+            border-image-slice: 12;
+            border-image-width: 12px;
+
+            &:focus-visible, &:hover {
+                @apply outline-none;
+                border-image-source: url(~/assets/icons/search-bordered-hover.svg);
+            }
+
+            &:before{
+                // precache image for focus-visible
+                @apply content-box absolute w-0 h-0;
+                background-image: url(~/assets/icons/search-bordered-hover.svg);
+            }
+        }
+    }
+
+    &.variant-with_corners {
+        &:after {
+            @apply content-box absolute w-full h-full top-0 left-0;
+        }
+    }
+}

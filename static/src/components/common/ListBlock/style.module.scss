@@ -1,0 +1,21 @@
+.list_block{
+  @apply shrink-0 bg-primary pt-6;
+  @apply flex flex-col gap-3 justify-between;
+  @apply min-h-[495px] max-h-[495px];
+
+  .head{
+    @apply flex flex-row justify-between text-white px-6;
+  }
+
+  .body{
+    @apply flex flex-col gap-6 px-6 w-full grow;
+  }
+
+  .footer{
+    @apply flex flex-row justify-between mt-[0.938rem] pb-6 pl-6;
+
+    .row {
+      @apply flex flex-row gap-[1.063rem];
+    }
+  }
+}

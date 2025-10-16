@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "types": ["vite/client", "node"],
+        "useDefineForClassFields": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "skipLibCheck": true,
+        "allowJs": true,
+
+        "moduleResolution": "bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "src",
+        "paths": {
+            "~/*": ["src/*"],
+            "#tw-config": ["../tailwind.config.ts"]
+        }
+    },
+    "include": ["src", "src/vite-env.d.ts"],
+    "references": [{ "path": "./tsconfig.node.json" }]
+}

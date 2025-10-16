@@ -1,0 +1,12 @@
+.statistics{
+  @apply w-full min-w-[336px] p-6 border border-solid border-gray
+  flex flex-col gap-3;
+
+  .row {
+    @apply flex flex-row justify-between;
+
+    .number {
+      @apply uppercase;
+    }
+  }
+}

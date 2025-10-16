@@ -1,0 +1,16 @@
+.container{
+  @apply relative;
+
+  .label{
+    @apply flex items-center justify-center px-3;
+    @apply border-r border-gray text-secondary z-10;
+  }
+
+  &:before {
+    @apply content-box absolute -z-10;
+    @apply w-6 h-6 bottom-1 left-1 bg-gray;
+    @apply -scale-100;
+    mask: url('~/assets/icons/dots.svg');
+    mask-size: contain;
+  }
+}

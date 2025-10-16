@@ -1,0 +1,31 @@
+.page_header{
+  @apply flex flex-row gap-6 h-24 justify-between mb-[3.625rem];
+  @apply flex-shrink-0;
+
+  .row {
+    @apply flex flex-row gap-6;
+
+    &:before {
+      @apply w-6 h-full content-box block;
+    }
+
+    .header{
+      @apply relative w-[264px] h-full bg-gray
+      flex justify-end;
+
+      background-image:
+              url(~/assets/icons/corner-lb.svg),
+              url(~/assets/icons/corner-rt.svg);
+      background-position:
+              left 0.25rem bottom 0.25rem,
+              right 0.25rem top 0.25rem;
+      background-repeat: no-repeat;
+
+
+      .title{
+        @apply relative z-10 self-center whitespace-nowrap;
+        transform: translate(calc(100% - 1.5rem), 0);
+      }
+    }
+  }
+}

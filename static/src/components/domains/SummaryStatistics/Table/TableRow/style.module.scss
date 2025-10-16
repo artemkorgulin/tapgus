@@ -1,0 +1,41 @@
+.subdivision, .person {
+    @apply grid grid-cols-subgrid col-span-full relative;
+    @apply h-[72px] items-center cursor-pointer;
+    @apply hover:bg-gray transition-all duration-300;
+}
+
+.subdivision {
+    @apply grid grid-cols-subgrid col-span-full relative;
+    @apply h-[72px] items-center cursor-pointer;
+    @apply hover:bg-gray transition-all duration-300;
+
+    &:before {
+        @apply w-6 h-full content-box block absolute -left-12;
+    }
+
+    .title {
+        @apply col-span-2 text-secondary text-xl;
+    }
+}
+
+.person {
+    .bage {
+        @apply flex flex-grow items-center;
+    }
+
+    .username {
+        @apply whitespace-nowrap px-3;
+    }
+
+    .position {
+        @apply font-secondary text-sm font-normal;
+    }
+}
+
+.department {
+    @apply -ml-6 text-4xl py-4;
+}
+
+.timeCell {
+    @apply text-center text-blue;
+}

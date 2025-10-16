@@ -1,0 +1,7 @@
+.num_in_sum{
+  @apply flex flex-row items-center gap-[0.125rem] text-tertiary;
+
+  .left{
+    @apply text-white;
+  }
+}

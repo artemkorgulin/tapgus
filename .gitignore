@@ -48,3 +48,4 @@
 ./static/ci
 ./static/.env.local
 ./static/.gitignore
+./static/ssl

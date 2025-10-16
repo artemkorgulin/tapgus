@@ -1,0 +1,44 @@
+.container{
+  &:hover {
+    .logo_overlay {
+      @apply opacity-100;
+    }
+
+    .logo_overlay_scale {
+      @apply scale-100;
+    }
+  }
+}
+
+.logo_title {
+  @apply uppercase;
+}
+
+.logo_overlay {
+  @apply absolute top-0 left-0
+  w-full h-full bg-blue
+  opacity-0 transition-opacity duration-base;
+}
+
+.logo_overlay_scale{
+  @apply w-full h-full
+  flex flex-col gap-2 items-center justify-center
+  transition-transform scale-0 duration-base;
+
+  &.corners{
+    // todo: положить в миксин app-pseudo-corners-rt-lb?
+    &::before,
+    &::after {
+      @apply content-box absolute w-2 h-2 bg-white;
+      @apply transition-opacity duration-base;
+    }
+
+    &::before {
+      @apply bottom-1 left-1;
+    }
+
+    &::after {
+      @apply top-1 right-1;
+    }
+  }
+}

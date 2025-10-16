@@ -1,0 +1,20 @@
+.description {
+  @apply relative flex flex-col gap-6;
+
+  .heading{
+    @apply relative z-10;
+    line-height: 3rem;
+  }
+
+  .text{
+    @apply flex flex-col gap-3 text-secondary;
+    @apply bg-milk z-50;
+    @apply overflow-y-auto;
+
+    &:after{
+      @apply content-box block sticky bottom-0;
+      @apply w-full min-h-12;
+      @apply bg-gradient-to-t from-milk to-transparent to-90%;
+    }
+  }
+}

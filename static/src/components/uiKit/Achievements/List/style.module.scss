@@ -1,0 +1,55 @@
+.achievements_list{
+  @apply grow-0 shrink-0 w-full text-blue relative;
+
+  .list{
+    @apply flex;
+
+    .item{
+      @apply flex flex-col gap-2 items-center shrink-0;
+
+      .title{
+        @apply whitespace-nowrap;
+        @apply text-center leading-[1];
+      }
+    }
+  }
+
+  &.variant{
+    &__team{
+      @apply w-12 h-[161px] max-h-[161px] overflow-hidden;
+
+      .list{
+        @apply flex-col gap-3;
+      }
+
+      &:after{
+        @apply content-box block;
+        @apply from-transparent to-primary;
+        @apply absolute w-full h-12;
+        @apply bottom-0 right-0;
+        background-image:
+          linear-gradient(to bottom,
+                  rgba(0,0,0,0) calc(100% - 1px),
+                  theme('colors.tertiary') calc(100% - 1px),
+                  theme('colors.tertiary') 100%),
+          theme('backgroundImage.gradient-to-b');
+      }
+    }
+
+    &__user{
+      @apply max-w-[270px] h-[65px];
+
+      .list{
+        @apply flex-row gap-6 overflow-x-auto pb-6;
+
+        &:after{
+          @apply content-box block;
+          @apply from-transparent to-primary;
+          @apply min-h-[calc(100%+4px)] min-w-12;
+          @apply absolute top-0 right-0;
+          @apply bg-gradient-to-r;
+        }
+      }
+    }
+  }
+}

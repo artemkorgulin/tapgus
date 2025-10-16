@@ -1,0 +1,11 @@
+.form_control{
+    @apply flex flex-col;
+}
+
+.animated_error_message{
+    @apply overflow-hidden;
+}
+
+.error{
+    @apply text-red;
+}

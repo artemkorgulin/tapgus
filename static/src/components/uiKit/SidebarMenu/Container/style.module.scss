@@ -1,0 +1,13 @@
+.sidebar {
+    @apply flex flex-col w-sidebar h-screen
+     bg-primary bg-[url('~/assets/image/dots-sidebar.svg')]
+     bg-no-repeat bg-[left_1.45rem_top_1.45rem];
+
+  .nav{
+    @apply mt-1;
+
+    .list {
+      @apply w-full flex flex-col gap-6 text-white fill-white uppercase;
+    }
+  }
+}

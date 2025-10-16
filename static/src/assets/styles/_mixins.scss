@@ -1,0 +1,317 @@
+@use "sass:math";
+
+@mixin app-tiny-scrollbar(
+  $thumbStyle: bg-white,
+  $thumbHoverStyle: bg-gray,
+  $trackStyle: bg-tertiary,
+  $trackHoverStyle: bg-gray,
+){
+    &::-webkit-scrollbar {
+        @apply absolute appearance-none;
+
+        &:vertical {
+            @apply w-[2px];
+        }
+
+        &:horizontal {
+            @apply h-[2px];
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply #{$thumbStyle};
+        &:hover{
+          @apply #{$thumbHoverStyle};
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        @apply #{$trackStyle};
+        &:hover{
+          @apply #{$trackHoverStyle};
+        }
+    }
+}
+
+@mixin app-tiny-scrollbar-reversed{
+    &::-webkit-scrollbar {
+        @apply absolute appearance-none;
+
+        &:vertical {
+            @apply w-[2px] transition-all;
+            transform: scale(1);
+        }
+
+        &:horizontal {
+            @apply h-[2px] transition-all;
+            transform: scale(1);
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        @apply bg-tertiary;
+        &:hover{
+            @apply bg-[gray];
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        @apply bg-white;
+    }
+}
+
+/**
+* Обрезает углы
+* можно указать transition: clip-path для анимации
+*/
+@mixin app-angled-corners-clip($size: 1rem, $max: 100%) {
+    $rest: $max;
+
+    @if $size {
+      $rest: calc(100% - $size);
+    }
+
+    clip-path: polygon(
+        $max 0%,
+        $size 0%,
+        0% $size,
+        0% $max,
+        $rest $max,
+        $max $rest,
+        $max 0%
+    );
+}
+
+// todo: хочется положить ассеты в переменные
+// todo: вопрос что лучше?
+//  mask или рендер иконки как компонент
+//  на проекте используется и то и другое
+@mixin app-corner-l {
+    mask: url(~/assets/icons/corner-lb.svg);
+    mask-size: contain;
+}
+@mixin app-corner-r {
+    mask: url(~/assets/icons/corner-rt.svg);
+    mask-size: contain;
+}
+
+// todo: add PSEUDO prefix
+@mixin app-pseudo-corners-rt-lb(){
+  &::before,
+  &::after {
+    @apply content-box absolute w-2 h-2;
+    @apply transition-opacity duration-base;
+  }
+
+  &::before {
+    @apply bottom-0 left-0;
+  }
+
+  &::after {
+    @apply top-0 right-0;
+  }
+}
+
+// todo: перейти на компонент Typography
+@mixin app-text-primary {
+    @apply font-primary text-primary text-base not-italic font-semibold;
+}
+
+@mixin app-text-secondary {
+    @apply font-secondary text-secondary text-sm not-italic font-medium;
+}
+
+/**
+* Контейнер счетчика
+*/
+@mixin app-counter-container {
+    @apply list-none;
+    counter-reset: li;
+}
+/**
+* Айтем счетчика (добавляет порядковый номер в псевдоэлемент)
+*/
+@mixin app-counter-item {
+    counter-increment: li;
+    content: counter(li, decimal-leading-zero);
+}
+
+@mixin app-animated-hover(
+    $styles: top-0 left-0 origin-left,
+    $size: 20,
+    $pseudo: before
+) {
+    &::#{$pseudo} {
+        @apply content-box w-[1px] absolute bg-blue h-full
+        transition-transform duration-base;
+
+        @apply #{$styles};
+
+        transform: scaleX(0);
+    }
+
+    &:hover::#{$pseudo} {
+        transform: scaleX($size);
+    }
+}
+
+@mixin app-stripes-45($gradient-color: theme('colors.blue')){
+    background: repeating-linear-gradient(
+                    -45deg,
+                    transparent,
+                    transparent 2px,
+                    $gradient-color 0,
+                    $gradient-color 4px
+    );
+}
+
+@mixin app-text-vertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/*
+Костыль для обводки текста снаружи.
+Мотивация:
+- Добавить жирную обводку на многострочный текст
+- Chrome не поддерживает paint-order для HTML-элементов
+- Решения на SVG/компонентах могут быть дорогими и громоздкими для многострочного текста
+- SVG так же не имеет нативной поддержки multiline-text
+
+Миксин может не подойти при работе с другим шрифтом.
+Для увеличения размера рбводки может понадобится добавить дополнительные "промежуточные" тени.
+Если ваш текст однострочный, то лучше использовать svg-компонент, например:
+
+.stroke{
+  fill: theme('colors.primary');
+  stroke: theme('colors.white');
+  stroke-width: 10px;
+  paint-order: stroke fill;
+}
+
+<svg width='400' height='200'>
+    <text y='48' className={css.stroke}>
+        {text}
+    </text>
+</svg>
+ */
+@mixin app-text-outline-5px($color: theme('colors.milk')) {
+  $size: 5;
+  $amid1: #{math.div($size, 2)}px;
+  $amid2: -#{math.div($size, 2)}px;
+  $max: #{$size}px;
+  $min: -#{$size}px;
+  text-shadow:
+          $max $max $color, // tr
+          $max $min $color, // br
+          $min $max $color, // tl
+          $min $min $color, // bl
+          0 $max $color,
+          0 $min $color,
+          $max 0 $color,
+          $min 0 $color,
+          $amid1 $max $color,
+          $amid1 $min $color,
+          $max $amid1 $color,
+          $min $amid1 $color,
+          $amid2 $max $color,
+          $amid2 $min $color,
+          $max $amid2 $color,
+          $min $amid2 $color;
+}
+
+// внутренняя граница
+@mixin app-border-inner($color: theme('colors.gray'), $shadows...){
+  box-shadow: theme('boxShadow.border') $color, $shadows;
+}
+
+/**
+уголки по углам элемента
+*/
+@mixin app-corners-bg{
+  background-image:
+          url(~/assets/image/corner-tl-white.svg),
+          url(~/assets/image/corner-tr-white.svg),
+          url(~/assets/image/corner-br-white.svg),
+          url(~/assets/image/corner-bl-white.svg);
+  background-position:
+          top left,
+          top right,
+          bottom right,
+          bottom left;
+  background-repeat: no-repeat;
+}
+
+/**
+button_with_corners содержит идентичную верстку
+TODO перенести сюда
+ */
+
+
+@mixin _app-corners-anim_PSEUDO {
+  &::before,
+  &::after {
+    @apply opacity-100;
+  }
+
+  &::before {
+    transform: translate(-0.5rem, 0.5rem);
+  }
+
+  &::after {
+    transform: translate(0.5rem, -0.5rem);
+  }
+}
+
+@mixin app-corners-animation_PSEUDO($focus: true, $hover: true){
+  &::before,
+  &::after {
+    @apply content-box absolute w-2 h-2 bg-primary opacity-0;
+    @apply transition-[transform,opacity] duration-base;
+    transform: translate(0, 0);
+  }
+  &::before {
+    @apply bottom-0 left-0;
+  }
+  &::after {
+    @apply top-0 right-0;
+  }
+
+  @if $focus and $hover {
+    &:focus, &:hover{
+    }
+  } @else {
+    @if $focus {
+      &:focus-within {
+      }
+    }
+
+    @if $hover {
+      &:hover {
+      }
+    }
+  }
+}
+
+// коробка с уголками и границей
+// todo: кажется это почти тоже самое что app-pseudo-corners-rt-lb
+//   отличия лишь в количестве используемых уголков.
+//   можно добавить варианты в app-corners-bg,
+//   тогда получится обьединить эти миксины в один
+@mixin app-corners-box_PSEUDO{
+  @apply relative;
+
+  &:before,
+  &:after{
+    @apply content-box block w-full h-full absolute top-0 left-0 pointer-events-none;
+  }
+}
+
+@mixin app-mask-stats($bg: red){
+  background-color: $bg;
+  mask: url(~/assets/image/graph-bg.svg);
+}
+
+@mixin app-card-label-vertical{
+  @apply h-[60px] z-10 text-right text-secondary uppercase;
+}

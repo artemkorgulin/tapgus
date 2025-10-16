@@ -1,0 +1,7 @@
+.achievement{
+  @apply w-6 h-6 shrink-0;
+
+  &.fallback{
+    @apply bg-white;
+  }
+}

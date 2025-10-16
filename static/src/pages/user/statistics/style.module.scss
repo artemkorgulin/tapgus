@@ -1,0 +1,36 @@
+.container_round_statistics {
+  border: solid black;
+  border-right: dashed black;
+  border-left: dashed black;
+  padding: 10px;
+  text-align: center;
+}
+
+.title {
+  --tw-bg-opacity: 1;
+  background-color: inherit;
+}
+.sub_title {
+
+}
+
+.header{
+ margin-bottom: 10px;
+}
+.pic_user{
+  display: block;
+  margin: 0 auto;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.list_rounds{
+
+}
+.list_rounds_item{
+  border: solid black;
+  border-right: dashed black;
+  border-left: dashed black;
+  padding: 10px;
+}

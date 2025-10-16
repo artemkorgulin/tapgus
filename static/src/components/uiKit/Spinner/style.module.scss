@@ -1,0 +1,28 @@
+.spinner{
+  @apply rounded-full animate-spin;
+  @apply transition-opacity opacity-100 ease-in-out;
+
+  &.size_xs{
+    @apply w-6 h-6 shadow-md;
+  }
+
+  &.size_sm{
+    @apply w-12 h-12 shadow-md;
+  }
+
+  &.size_lg{
+    @apply w-96 h-96 shadow-lg;
+  }
+
+  &.variant_default{
+    @apply border-x border-solid border-gray border-t-transparent;;
+  }
+
+  &.variant_dots{
+    @apply border-8 border-dotted shadow-none;
+  }
+
+  &.hidden{
+    @apply opacity-0;
+  }
+}

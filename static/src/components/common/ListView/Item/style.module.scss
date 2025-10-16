@@ -1,0 +1,86 @@
+.list_item{
+  @apply relative flex flex-col gap-[1.375rem] cursor-pointer;
+
+  &.withCount{
+    &:before{
+      @apply content-box
+      absolute bottom-0 right-0 w-6 h-6 rotate-90
+      transition-colors bg-gray;
+      mask: url(~/assets/icons/dots.svg) no-repeat;
+    }
+
+    &:hover {
+      &:before{
+        @apply bg-blue;
+      }
+    }
+  }
+
+  &.withTransitions{
+    .logo_clip {
+      @apply transition-[clip-path];
+    }
+  }
+
+
+  .container{
+    @apply relative shrink grow-0;
+
+    .title{
+      @apply uppercase overflow-ellipsis overflow-clip;
+    }
+  }
+
+  .count {
+    @apply uppercase text-secondary pl-6 shrink-0;
+  }
+
+  .logo {
+    @apply relative text-white;
+  }
+
+  .logo_img{
+    object-fit: contain;
+  }
+
+  &.big{
+    @apply w-[264px] h-[264px] max-w-[264px] max-h-[264px];
+
+    &.withCount {
+      @apply w-[264px] h-[306px] max-w-[264px] max-h-[306px];
+    }
+
+    .container {
+      .title {
+        @apply absolute px-6;
+        @apply bottom-[-0.875rem] left-0;
+        @apply text-h2 leading-[100%];
+      }
+    }
+
+    .logo_img{
+      @apply w-[16.5rem] h-[16.5rem];
+    }
+  }
+
+  &.small{
+    @apply w-full h-12;
+    @apply flex flex-row gap-3 items-center justify-between;
+
+    .container {
+      @apply flex flex-row gap-3;
+
+      .logo{
+        @apply w-12 h-12;
+      }
+
+      .title {
+        @apply text-h3  text-nowrap grow-0 shrink;
+      }
+    }
+
+    .logo_img{
+      @apply w-12 h-12;
+    }
+  }
+}

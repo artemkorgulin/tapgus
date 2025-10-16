@@ -1,0 +1,13 @@
+.logo{
+  @apply absolute z-0 min-w-[292px];
+
+  &.variant_hands{
+    @apply h-[149px] object-fill;
+    transform: translate(0.75rem,-1.188rem);
+  }
+
+  &.variant_stats{
+    @apply h-[141px] object-contain;
+    transform: translate(-0.375rem, -1.188rem);
+  }
+}

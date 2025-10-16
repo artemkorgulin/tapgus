@@ -1,0 +1,18 @@
+@use 'tailwindcss/base' as *;
+@use 'tailwindcss/components' as *;
+@use 'tailwindcss/utilities' as *;
+@import url('typography.scss');
+
+@layer base {
+  body {
+    @apply bg-milk;
+  }
+
+  input{
+    @apply bg-transparent;
+  }
+
+  .mid {
+    @apply flex flex-col gap-3 items-center justify-center;
+  }
+}

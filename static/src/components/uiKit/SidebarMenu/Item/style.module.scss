@@ -1,0 +1,92 @@
+.nav_item {
+    @apply h-12 text-tertiary;
+
+    &.disabled{
+        @apply pointer-events-none;
+        .container {
+            .title {
+                @apply text-tertiary;
+            }
+        }
+    }
+
+    .container {
+        @apply relative flex flex-row pl-6;
+
+        .icon {
+            @apply relative w-12 h-12 inline-flex items-center justify-center;
+
+            &::before,
+            &::after {
+                @apply content-box absolute bg-contain bg-no-repeat transition-opacity duration-base;
+            }
+
+            &::before {
+                @apply w-6 h-6 top-2 left-0 bg-[url('~/assets/image/dots-tl.svg')];
+                @apply opacity-0;
+            }
+
+            &::after {
+                @apply w-3.5 h-3.5 bottom-0 right-0 bg-[url('~/assets/image/dots-br.svg')];
+                @apply opacity-100;
+            }
+        }
+
+        .title {
+            @apply flex flex-row items-center z-10;
+            @apply text-white font-primary leading-[150%] tracking-[0.044rem];
+
+            &::before,
+            &::after {
+                @apply relative h-4 w-3 overflow-hidden flex flex-row items-center
+                opacity-0 transition-[transform,opacity] ease-in-out duration-base
+                bg-current content-box;
+                mask-size: contain;
+            }
+
+            &::before {
+                mask: url(~/assets/icons/caret-l.svg) no-repeat;
+                transform: translate(0.75rem, 0);
+            }
+
+            &::after {
+                mask: url(~/assets/icons/caret-r.svg) no-repeat;
+                transform: translate(-0.25rem, 0);
+            }
+        }
+    }
+
+    .active {
+        @apply text-white;
+
+        .container {
+            &::before {
+                transform: scaleX(96);
+            }
+
+            .icon {
+                &::before {
+                    @apply opacity-100;
+                }
+                &::after {
+                    @apply opacity-0;
+                }
+            }
+
+            .title {
+                &::before,
+                &::after {
+                    opacity: 1;
+                }
+
+                &::before {
+                    transform: translate(0, 0);
+                }
+
+                &::after {
+                    transform: translate(0.438rem, 0);
+                }
+            }
+        }
+    }
+}

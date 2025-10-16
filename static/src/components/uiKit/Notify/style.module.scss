@@ -1,0 +1,30 @@
+.button {
+    @apply relative transition-[filter] hover:brightness-[1.8] duration-base;
+
+    .badge {
+        @apply absolute top-0 left-0 opacity-0 transition-opacity;
+
+        &.hasNew {
+            opacity: 1;
+        }
+    }
+}
+
+.close{
+    @apply relative w-4 h-4 flex items-center justify-center;
+    @apply rounded-full bg-blue opacity-80 transition-opacity;
+
+    &:before{
+        @apply content-['×'] w-4 h-4
+        text-[16px] leading-[100%]
+        text-primary font-normal;
+    }
+
+    &:hover{
+        @apply opacity-100;
+    }
+}
+
+.link{
+    @apply text-blue;
+}

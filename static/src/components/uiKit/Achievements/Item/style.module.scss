@@ -1,0 +1,8 @@
+.achievement_item{
+  @apply flex flex-col gap-2 items-center shrink-0;
+
+  .title{
+    @apply whitespace-nowrap;
+    @apply text-center leading-[1];
+  }
+}

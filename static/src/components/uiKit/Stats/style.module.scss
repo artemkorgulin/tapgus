@@ -1,0 +1,65 @@
+.stats{
+  @apply p-3 relative w-[216px] h-[132px] bg-white shadow-card;
+
+  .info {
+    @apply flex flex-row justify-between;
+
+    .numbers{
+      @apply flex flex-row gap-[0.438rem];
+
+      .number{
+        @apply text-h3 leading-none;
+      }
+
+      .dynamics {
+        @apply flex flex-col gap-[2px] items-end;
+
+        &.dynamics-v-up {
+          @apply text-green;
+        }
+
+        &.dynamics-v-down {
+          @apply text-dynamicsDown;
+        }
+
+        .dynNumber{
+          @apply text-sm;
+          color: currentColor;
+          line-height: 92.308%;
+        }
+      }
+    }
+  }
+
+  .graph {
+    @apply w-full;
+
+    &:before{
+      @apply content-box w-2 h-2 bg-gray
+      absolute bottom-3 left-3;
+      // todo: перенести часть стилей в миксин app-corner-l, т.к. они постоянны (высота и ширина)
+    }
+    &:after{
+      @apply content-box w-[178px] h-[74px]
+      absolute bottom-3 right-3;
+    }
+
+    .graphIcon{
+      @apply absolute bottom-3 right-3 z-10;
+    }
+  }
+
+  &.variant-v-sold{
+    .graph{
+      @apply text-blue;
+    }
+  }
+
+  &.variant-v-total{
+    .graph{
+      @apply text-flower;
+    }
+  }
+
+
+}
