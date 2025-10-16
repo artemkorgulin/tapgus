@@ -48,7 +48,7 @@ const Rounds: TComponent = () => {
     }, []);
 
     const onSubmit: SubmitHandler<TRoundAddReq> = async () => {
-        navigate(ROUTES.GAMER+""+ROUTES.VIEWER.GAMER_PAGE_ADDROUND);
+        navigate(ROUTES.VIEWER.GAMER_PAGE_ADDROUND);
     };
 
     if(CheckRole) {

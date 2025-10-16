@@ -57,61 +57,63 @@ const AddRound: TComponent = () => {
                     <h2 className={css.title}>Добавить раунд:</h2>
                     <span className={css.title}>{userName}</span>
                 </div>
-                {resErrorMessage ? <ErrorMessage error={resErrorMessage} /> : null}
-                <form
-                    className='flex flex-col gap-4'
-                    onSubmit={handleSubmit(onSubmit)}
-                >
-                    <FieldControl error={errors?.round_active?.message}>
-                        <Input
-                            placeholder='Password'
-                            type='password'
-                            {...register('round_active', { required })}
-                        />
-                    </FieldControl>
-                    <FieldControl error={errors?.round_name?.message}>
-                        <Input
-                            placeholder='Имя раунда'
-                            type='text'
-                            {...register('round_name', { required })}
-                        />
-                    </FieldControl>
-                    <FieldControl error={errors?.round_begin_time?.message}>
-                        <Input
-                            placeholder='Время начала раунда'
-                            type='round_begin_time'
-                            {...register('round_begin_time', { required })}
-                        />
-                    </FieldControl>
-                    <FieldControl error={errors?.round_begin_time?.message}>
-                        <Input
-                            placeholder='Время конца раунда'
-                            type='round_end_time'
-                            {...register('round_end_time', { required })}
-                        />
-                    </FieldControl>
-                    <FieldControl error={errors?.round_status?.message}>
-                        <Input
-                            placeholder='Статус раунда'
-                            type='round_status'
-                            {...register('round_status', { required })}
-                        />
-                    </FieldControl>
-                    <ButtonWithCorners
-                        type='submit'
-                        rightElement={
-                            <Spinner
-                                size='xs'
-                                variant='dots'
-                                isHidden={!isSubmitting}
-                            />
-                        }
-                        rightElementClassName='w-0'
-                        disabled={isSubmitting}
+                <div className={css.wrapper_add_from}>
+                    {resErrorMessage ? <ErrorMessage error={resErrorMessage} /> : null}
+                    <form
+                        className='flex flex-col gap-4'
+                        onSubmit={handleSubmit(onSubmit)}
                     >
-                        Создать раунд
-                    </ButtonWithCorners>
-                </form>
+                        <FieldControl error={errors?.round_active?.message}>
+                            <Input
+                                placeholder='Password'
+                                type='password'
+                                {...register('round_active', { required })}
+                            />
+                        </FieldControl>
+                        <FieldControl error={errors?.round_name?.message}>
+                            <Input
+                                placeholder='Имя раунда'
+                                type='text'
+                                {...register('round_name', { required })}
+                            />
+                        </FieldControl>
+                        <FieldControl error={errors?.round_begin_time?.message}>
+                            <Input
+                                placeholder='Время начала раунда'
+                                type='round_begin_time'
+                                {...register('round_begin_time', { required })}
+                            />
+                        </FieldControl>
+                        <FieldControl error={errors?.round_begin_time?.message}>
+                            <Input
+                                placeholder='Время конца раунда'
+                                type='round_end_time'
+                                {...register('round_end_time', { required })}
+                            />
+                        </FieldControl>
+                        <FieldControl error={errors?.round_status?.message}>
+                            <Input
+                                placeholder='Статус раунда'
+                                type='round_status'
+                                {...register('round_status', { required })}
+                            />
+                        </FieldControl>
+                        <ButtonWithCorners
+                            type='submit'
+                            rightElement={
+                                <Spinner
+                                    size='xs'
+                                    variant='dots'
+                                    isHidden={!isSubmitting}
+                                />
+                            }
+                            rightElementClassName='w-0'
+                            disabled={isSubmitting}
+                        >
+                            Создать раунд
+                        </ButtonWithCorners>
+                    </form>
+                </div>
             </div>
         );
     } else {
