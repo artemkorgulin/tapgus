@@ -6,7 +6,7 @@ import {catchHandler} from "utils/helpers/api";
 import {useParams} from "react-router-dom";
 import logoGus from "../../../assets/gus/guss.webp";
 import { statusMatrix } from "../constants";
-import {getSessionStorageOrDefault} from "../../../utils/hooks/useSession";
+import { getSessionStorageOrDefault } from 'utils/hooks/useSession';
 
 const Statistics: TComponent = () => {
 
