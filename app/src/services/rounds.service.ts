@@ -73,6 +73,7 @@ export class RoundsService {
         this.roundsRepository.insert({
             round_active: String(plainText.round_active),
             round_name: String(plainText.round_name),
+            round_user: String(plainText.round_user),
             round_begin_time: String(plainText.round_begin_time),
             round_end_time: String(plainText.round_end_time),
             round_status: String(plainText.round_status)
