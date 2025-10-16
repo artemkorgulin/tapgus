@@ -70,7 +70,7 @@ export class RoundsService {
         return this.summaryInfoRound;
     }
     create(plainText: any) {
-        this.roundsRepository.createOrUpdateRound({
+        this.roundsRepository.insert({
             round_active: String(plainText.round_active),
             round_name: String(plainText.round_name),
             round_begin_time: String(plainText.round_begin_time),
