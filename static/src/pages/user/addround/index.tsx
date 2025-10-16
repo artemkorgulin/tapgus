@@ -65,8 +65,8 @@ const AddRound: TComponent = () => {
                     >
                         <FieldControl error={errors?.round_active?.message}>
                             <Input
-                                placeholder='Password'
-                                type='password'
+                                placeholder='Активность раунда'
+                                type='text'
                                 {...register('round_active', { required })}
                             />
                         </FieldControl>
