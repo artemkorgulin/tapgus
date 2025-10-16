@@ -69,8 +69,15 @@ export class RoundsService {
 
         return this.summaryInfoRound;
     }
-    create(req: Request) {
-        return this.roundsRepository.createOrUpdateRound(req.body);
+    create(plainText: any) {
+        this.roundsRepository.createOrUpdateRound({
+            round_active: String(plainText.round_active),
+            round_name: String(plainText.round_name),
+            round_begin_time: String(plainText.round_begin_time),
+            round_end_time: String(plainText.round_end_time),
+            round_status: String(plainText.round_status)
+        });
+        return {status: "success"};
     }
     update(req: Request, param: { roundId: number }) {
         return { body: req.body, param };

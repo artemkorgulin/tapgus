@@ -6,7 +6,7 @@ import {
     Patch,
     Post,
     Req,
-    UseInterceptors, Query,
+    UseInterceptors, Query, Body,
 } from '@nestjs/common';
 import {RoundsService} from "../services/rounds.service";
 import {Request} from "express";
@@ -33,8 +33,8 @@ export class RoundsController {
     }
     @Post()
     @UseInterceptors(TransformInterceptor)
-    async store(@Req() req: Request) {
-        const result =  this.roundsService.create(req);
+    async store(@Req() req: Request, @Body() plainText: any) {
+        const result =  this.roundsService.create(plainText);
         return { message: 'success', result: result };
     }
     @Patch('/:roundId')
