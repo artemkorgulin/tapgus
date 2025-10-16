@@ -4,6 +4,7 @@ import { ROUTES } from 'utils/constants/routes';
 
 const Rounds = lazy(() => import('./rounds'));
 const Statistics = lazy(() => import('./statistics'));
+const AddRound = lazy(() => import('./addround'));
 
 export const GAMER_ROUTERS = [
     {
@@ -21,6 +22,15 @@ export const GAMER_ROUTERS = [
         element: (
             <LayoutContent>
                 <Rounds />
+            </LayoutContent>
+        ),
+    },
+    {
+        route: ROUTES.USER.GAMER_PAGE_ADDROUND,
+        path: '/user/addround',
+        element: (
+            <LayoutContent>
+                <AddRound />
             </LayoutContent>
         ),
     },

@@ -16,7 +16,12 @@ export type TLoginReq = {
 };
 
 export type TRoundAddReq = {
-    id: string;
+    round_active: string;
+    round_name: string;
+    round_user: string;
+    round_begin_time: string;
+    round_end_time: string;
+    round_status: string;
 };
 
 export type TRoundItemeq = {

@@ -17,6 +17,7 @@ export const GAMER_MAN_ROUTES = {
     GAMER_PAGE_ROUNDS_USER: `/rounds`,
     GAMER_PAGE_STATISTICS_ROUNDS: `/statistics-rounds`,
     GAMER_PAGE_COOLDOWN_ROUNDS: `/cooldown-rounds`,
+    GAMER_PAGE_ADDROUND: `/addround`,
 };
 
 const GAMER_BASE = '/user';

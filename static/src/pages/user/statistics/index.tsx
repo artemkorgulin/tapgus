@@ -6,12 +6,14 @@ import {catchHandler} from "utils/helpers/api";
 import {useParams} from "react-router-dom";
 import logoGus from "../../../assets/gus/guss.webp";
 import { statusMatrix } from "../constants";
+import {getSessionStorageOrDefault} from "../../../utils/hooks/useSession";
 
 const Statistics: TComponent = () => {
 
     const { roundId } = useParams<{ roundId: string }>();
     const [data, setData] = useState<any>(null);
     const [resErrorMessage, setResErrorMessage] = useState<string>('');
+    const userName = getSessionStorageOrDefault("userUserName","");
 
     useEffect(() => {
         const roundItemData = async () => {
@@ -28,6 +30,7 @@ const Statistics: TComponent = () => {
     return (
         <div>
             <h2 className={css.title}>Раунд: {data?.roundData?.round_name}</h2>
+            <span className={css.title}>{userName}</span>
             <div className={css.container_round_statistics}>
                 <div className={css.header}>
                     <span className={css.sub_title}>{statusMatrix[data?.roundData?.round_status]}</span>

@@ -1,0 +1,43 @@
+.list_container{
+  @apply flex flex-row gap-6 relative;
+
+  .title {
+    @apply bg-white absolute top-[1.5rem] left-0 z-10;
+  }
+
+  .left{
+    @apply cursor-pointer;
+    @apply shrink-0 w-6 h-full pt-[5.25rem];
+    @apply flex flex-col gap-3 items-center relative;
+
+    &::before{
+      @apply content-box block h-full w-full;
+    }
+  }
+
+  .list{
+    @apply min-w-[528px] min-h-[288px] p-6 pt-[5.25rem];
+    @apply border border-solid border-gray;
+    @apply flex flex-col grow gap-3 relative;
+
+
+    @apply max-h-[495px] overflow-hidden;
+
+    &.full{
+      @apply max-h-none;
+    }
+  }
+}
+
+.header{
+
+}
+.list_rounds{
+
+}
+.list_rounds_item{
+  border: solid black;
+  border-right: dashed black;
+  border-left: dashed black;
+  padding: 10px;
+}
