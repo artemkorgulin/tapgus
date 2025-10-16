@@ -44,7 +44,6 @@ const AddRound: TComponent = () => {
     }, []);
 
     const onSubmit: SubmitHandler<TRoundAddReq> = async (data) => {
-        data.round_user = userId;
         return await apiV2.rounds
             .addRound(data)
             .then(() => navigate(ROUTES.GAMER))
@@ -77,6 +76,13 @@ const AddRound: TComponent = () => {
                                 placeholder='Имя раунда'
                                 type='text'
                                 {...register('round_name', { required })}
+                            />
+                        </FieldControl>
+                        <FieldControl error={errors?.round_user?.message}>
+                            <Input
+                                placeholder='Идентификатор пользователя  на кого назначаем'
+                                type='text'
+                                {...register('round_user', { required })}
                             />
                         </FieldControl>
                         <FieldControl error={errors?.round_begin_time?.message}>
