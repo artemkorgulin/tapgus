@@ -13,7 +13,7 @@
 7. Nodemon
 8. TypeOrm
 8. Npm
-8. Pug
+8. Swagger
 
 ### Требования и скетчи
 
