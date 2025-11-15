@@ -38,7 +38,7 @@ export type RoundsList = {
     remember: boolean;
 };
 
-export type TLoginRes = { userId: string; userSessid: string; userEmail: string; userUserName: string; validateUser: boolean };
+export type TLoginRes = { userId: string; userSessid: string; userEmail: string; userUserName: string; validateUser: boolean; accessToken: string; };
 export type TLoginJwtRes = { accessToken: string; reload: boolean; validateUser: boolean };
 export type TRoundListRes = {
     message: string;

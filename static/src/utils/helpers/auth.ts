@@ -1,6 +1,8 @@
 import { cookieHelpers } from "utils/helpers/cookie";
 import type { TCookieAttributes } from "utils/helpers/cookie";
 import type { TViewerData, TViewerDataLegacy } from 'utils/types/auth';
+import { authDecode } from 'utils/helpers/token';
+import {useSessionStorage} from "../hooks/useSession";
 
 const AUTH_COOKIE_KEY = 'accessToken';
 const AUTH_COOKIE_TOKEN_KEY = 'token';
@@ -38,3 +40,18 @@ export const isLegacyViewerData = (
     loaderData: TViewerData | TViewerDataLegacy,
 ): loaderData is TViewerDataLegacy =>
     typeof (loaderData as TViewerDataLegacy) === 'boolean';
+
+export const setEnCryptedData = (tokenCurrent: any) => {
+    let authToken = authDecode(tokenCurrent);
+    authToken.then((userToken: any) => {
+        window.localStorage.setItem('userId', userToken.userId);
+        window.localStorage.setItem('email', userToken.email);
+        window.localStorage.setItem('login', userToken.login);
+        window.localStorage.setItem('userSessid', userToken.userSessid);
+
+        if(userToken.userId && userToken.validateUser){
+            useSessionStorage("userId",String(userToken.userId));
+            useSessionStorage("userUserName",String(userToken.userUserName));
+        }
+    });
+}

@@ -27,13 +27,7 @@ export class AuthController {
             userEmail: string | undefined;
             userSessid: string;
             validateUser: boolean;
-        }
-    };
-    private subDataToken: {
-        data: {
-            reload: string;
-            validateUser: boolean;
-            accessToken: string
+            accessToken: string;
         }
     };
 
@@ -67,6 +61,7 @@ export class AuthController {
                 userEmail: "",
                 userUserName: "",
                 validateUser: this.validateUser,
+                accessToken: ""
             }
         };
 
@@ -90,7 +85,8 @@ export class AuthController {
                         String(process.env.PRIVATE_EXPIRE_IN)
                     );
 
-                    res.cookie('token', this.tokenResp.access_token, {
+                    const token = this.tokenResp.access_token;
+                    res.cookie('token', token, {
                         expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
                         sameSite: 'strict',
                         httpOnly: false,
@@ -109,6 +105,7 @@ export class AuthController {
                             userEmail: userAuth?.email,
                             userUserName: userAuth?.login,
                             validateUser: this.validateUser,
+                            accessToken: token,
                         }
                     };
                 }
