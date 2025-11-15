@@ -52,6 +52,16 @@ if(String(getAuth()) == "undefined") {
             loader: async () => redirect(ROUTES.VIEWER.GAMER_PAGE_DETAIL_STATISTICS),
         },
         {
+            path: ROUTES.TAPGUSS,
+            loader: viewerLoader,
+            element: <LayoutMain/>,
+            errorElement: (
+                <LayoutBlank>
+                    <ErrorBoundary/>
+                </LayoutBlank>
+            ),
+        },
+        {
             path: ROUTES.GAMER,
             loader: viewerLoader,
             element: <LayoutContent/>,
