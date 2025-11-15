@@ -2,6 +2,8 @@ import { axiosInstance } from 'lib/api';
 import {clearAuth, setAuth} from 'utils/helpers/auth';
 import {ENV_BASE_LEGACY_API_URL} from "../app-env";
 import { useSessionStorage } from 'utils/hooks/useSession';
+import { getToken } from 'utils/helpers/auth';
+import { authDecode } from 'utils/helpers/token';
 
 import type {
     TLoginReq,
@@ -43,9 +45,14 @@ const auth = {
             .then((response: any) => {
                 if(response.data.accessToken && response.data.validateUser){
                     setAuth(response.data.accessToken);
-                }
-                if(response.data.userSessid && response.data.validateUser){
-                    setAuth(response.data.userSessid);
+                } else {
+                    authDecode(String(getToken())).then((userToken: any) => {
+                        window.localStorage.setItem('userId', userToken.userId);
+                        window.localStorage.setItem('email', userToken.email);
+                        window.localStorage.setItem('login', userToken.login);
+                        window.localStorage.setItem('userSessid', userToken.userSessid);
+                        setAuth(userToken.userSessid);
+                    });
                 }
                 if(response.data.userId && response.data.validateUser){
                     useSessionStorage("userId",String(response.data.userId));

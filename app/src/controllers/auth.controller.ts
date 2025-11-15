@@ -73,16 +73,30 @@ export class AuthController {
         if (plainText) {
             this.validateUser = this.authService.loginCheckUser(plainText.login);
             if(this.validateUser) {
-                this.userSessid = crypto.randomUUID();
-                res.cookie('token', this.userSessid, {
-                    expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
-                    sameSite: 'strict',
-                    httpOnly: false,
-                    secure: false
-                });
 
                 const userAuth = await this.authService.getUser(plainText.login);
                 if (userAuth?.id) {
+                    this.userSessid = crypto.randomUUID();
+
+                    const payload = {
+                        userId: userAuth?.id,
+                        email: userAuth?.email,
+                        login: plainText.login,
+                        userSessid: this.userSessid,
+                        password: plainText.password
+                    };
+                    this.tokenResp = this.authService.generateTokenJwt(
+                        payload,
+                        String(process.env.PRIVATE_EXPIRE_IN)
+                    );
+
+                    res.cookie('token', this.tokenResp.access_token, {
+                        expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
+                        sameSite: 'strict',
+                        httpOnly: false,
+                        secure: false
+                    });
+
                     this.authService.signUser(
                         userAuth.id,
                         this.userSessid
@@ -103,56 +117,6 @@ export class AuthController {
 
         return {
             data: this.subData
-        };
-    }
-
-    @Post('tokenClient')
-    async tokenClient(@Res({passthrough: true}) res: Response, @Body() plainText: any) {
-        this.subDataToken  = {
-            "data": {
-                accessToken: "",
-                reload: 'N',
-                validateUser: this.validateUser,
-            }
-        };
-
-        if (plainText) {
-            this.validateUser = this.authService.loginCheckUser(plainText.login);
-            if(this.validateUser) {
-                this.authService.getUser(
-                    plainText.login
-                ).then((user: any) => {
-                    const payload = {
-                        userId: user.userId,
-                        email: user.email,
-                        login: plainText.login,
-                        password: plainText.password
-                    };
-                    this.tokenResp = this.authService.generateTokenJwt(
-                        payload,
-                        String(process.env.PRIVATE_EXPIRE_IN)
-                    );
-
-                    res.cookie('token', this.tokenResp.access_token, {
-                        expires: new Date(new Date().getTime() + Number(process.env.PRIVATE_COOKIE_DAY) * 1000),
-                        sameSite: 'strict',
-                        httpOnly: false,
-                        secure: false
-                    });
-
-                    this.subDataToken = {
-                        "data": {
-                            accessToken: this.tokenResp.access_token,
-                            reload: 'N',
-                            validateUser: this.validateUser,
-                        }
-                    };
-                });
-            }
-        }
-
-        return {
-            data: this.subDataToken
         };
     }
 
